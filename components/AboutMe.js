@@ -152,8 +152,8 @@ export default function AboutMe() {
                 h={{ base: '300px', lg: '350px' }}
                 objectFit="cover"
                 borderRadius="50%"
-                alt="Abdul Rahman"
-                src="/ME.jpg"
+                alt="Tanmay Chouhan"
+                src="https://imagizer.imageshack.com/img924/2606/4R44zN.jpg"
               />
             </Box>
           </Flex>

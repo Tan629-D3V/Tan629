@@ -61,7 +61,7 @@ export default function Navbar({ enableTransition }) {
       >
         <Box
           as={Link}
-          href="/"
+          href="https://tanmaychouhan.me"
           display="flex"
           alignItems="center"
           className="navbar-logo-wrapper"
