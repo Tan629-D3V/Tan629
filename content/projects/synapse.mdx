@@ -1,0 +1,227 @@
+---
+title: "Synapse - AI Chatbot"
+summary: "A real-time NLP chatbot built with MERN stack and OpenAI API, featuring JWT authentication and 100% message accuracy through model optimization."
+image: "https://via.placeholder.com/800x400?text=Synapse+AI+Chatbot&bg=3CCF91&color=000000"
+date: "2024-01-15"
+category: "AI/ML"
+githubLink: "https://github.com/Tau629-D3V/synapse-chatbot"
+deployLink: "https://synapse-chatbot.vercel.app"
+tags: ["MERN Stack", "OpenAI API", "JWT", "AI", "NLP"]
+---
+
+# Synapse - AI Chatbot
+
+A sophisticated real-time NLP chatbot that leverages the power of OpenAI's GPT models to provide intelligent, context-aware conversations with users.
+
+## Project Overview
+
+Synapse is a full-stack AI chatbot application that demonstrates modern web development practices combined with cutting-edge AI technology. The project showcases real-time communication, secure authentication, and intelligent response generation.
+
+<TechStack technologies={["React.js", "Node.js", "Express.js", "MongoDB", "OpenAI API", "JWT", "Socket.io", "Chakra UI"]} />
+
+## Key Features
+
+<FeatureList features={[
+  "Real-time chat interface with WebSocket connections",
+  "JWT-based user authentication and authorization",
+  "Integration with OpenAI GPT-3.5/4 API for intelligent responses",
+  "Message history persistence in MongoDB",
+  "Context-aware conversations with memory",
+  "Responsive design with Chakra UI",
+  "Rate limiting and API usage optimization",
+  "Error handling and fallback responses"
+]} />
+
+## Technical Architecture
+
+### Frontend (React.js)
+- **State Management**: React Context API for global state
+- **UI Framework**: Chakra UI for consistent, accessible components
+- **Real-time Communication**: Socket.io client for live chat
+- **Routing**: React Router for navigation
+- **HTTP Client**: Axios for API requests
+
+### Backend (Node.js + Express)
+- **Authentication**: JWT tokens with refresh mechanism
+- **Database**: MongoDB with Mongoose ODM
+- **Real-time**: Socket.io server for WebSocket connections
+- **AI Integration**: OpenAI API with request optimization
+- **Security**: Rate limiting, input validation, CORS
+
+### Database Schema
+```javascript
+// User Schema
+{
+  username: String,
+  email: String,
+  password: String (hashed),
+  createdAt: Date,
+  lastActive: Date
+}
+
+// Message Schema
+{
+  userId: ObjectId,
+  content: String,
+  role: String, // 'user' or 'assistant'
+  timestamp: Date,
+  conversationId: String
+}
+```
+
+## Installation & Setup
+
+<InfoAlert title="Prerequisites" type="info">
+  Make sure you have Node.js (v16+) and MongoDB installed on your system.
+</InfoAlert>
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/Tau629-D3V/synapse-chatbot.git
+cd synapse-chatbot
+```
+
+### 2. Install Dependencies
+```bash
+# Install backend dependencies
+cd backend
+npm install
+
+# Install frontend dependencies
+cd ../frontend
+npm install
+```
+
+### 3. Environment Configuration
+Create `.env` files in both backend and frontend directories:
+
+**Backend (.env)**
+```env
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret_key
+OPENAI_API_KEY=your_openai_api_key
+PORT=5000
+```
+
+**Frontend (.env)**
+```env
+REACT_APP_API_URL=http://localhost:5000
+REACT_APP_SOCKET_URL=http://localhost:5000
+```
+
+### 4. Run the Application
+```bash
+# Start backend server
+cd backend
+npm run dev
+
+# Start frontend development server
+cd ../frontend
+npm start
+```
+
+## API Endpoints
+
+### Authentication
+- `POST /api/auth/register` - User registration
+- `POST /api/auth/login` - User login
+- `POST /api/auth/refresh` - Refresh JWT token
+- `POST /api/auth/logout` - User logout
+
+### Chat
+- `GET /api/chat/history` - Get chat history
+- `POST /api/chat/message` - Send message to AI
+- `DELETE /api/chat/history` - Clear chat history
+
+### WebSocket Events
+- `join` - Join chat room
+- `message` - Send/receive messages
+- `typing` - Typing indicators
+- `disconnect` - Handle disconnection
+
+## Performance Optimizations
+
+<InfoAlert title="Performance Tips" type="success">
+  The application includes several optimizations for better performance and user experience.
+</InfoAlert>
+
+### 1. OpenAI API Optimization
+- Request batching for multiple messages
+- Response caching for common queries
+- Token usage monitoring and limits
+- Fallback responses for API failures
+
+### 2. Database Optimization
+- Indexed queries for faster retrieval
+- Connection pooling for MongoDB
+- Aggregation pipelines for analytics
+- Data pagination for large datasets
+
+### 3. Frontend Optimizations
+- Lazy loading for components
+- Memoization for expensive calculations
+- Debounced input handling
+- Optimistic UI updates
+
+## Security Features
+
+- **JWT Authentication**: Secure token-based authentication
+- **Password Hashing**: bcrypt for password security
+- **Input Validation**: Comprehensive input sanitization
+- **Rate Limiting**: API request throttling
+- **CORS Configuration**: Cross-origin resource sharing
+- **Environment Variables**: Secure configuration management
+
+## Deployment
+
+<ProjectLinks 
+  githubUrl="https://github.com/Tau629-D3V/synapse-chatbot"
+  liveUrl="https://synapse-chatbot.vercel.app"
+  demoUrl="https://synapse-demo.vercel.app"
+/>
+
+### Vercel Deployment
+1. Connect your GitHub repository to Vercel
+2. Configure environment variables in Vercel dashboard
+3. Deploy with automatic CI/CD pipeline
+
+### Docker Deployment
+```dockerfile
+# Backend Dockerfile
+FROM node:16-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+EXPOSE 5000
+CMD ["npm", "start"]
+```
+
+## Future Enhancements
+
+<FeatureList title="Planned Features" features={[
+  "Multi-language support with translation API",
+  "Voice-to-text and text-to-speech capabilities",
+  "File upload and document analysis",
+  "Advanced conversation analytics",
+  "Custom AI model fine-tuning",
+  "Mobile application (React Native)",
+  "Integration with external services (Slack, Discord)",
+  "Advanced user management and roles"
+]} />
+
+## Contributing
+
+We welcome contributions! Please read our contributing guidelines and submit pull requests for any improvements.
+
+<InfoAlert title="Getting Started" type="info">
+  Fork the repository, create a feature branch, and submit a pull request with your changes.
+</InfoAlert>
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+---
+
+*Built with ❤️ using React, Node.js, and OpenAI API* 

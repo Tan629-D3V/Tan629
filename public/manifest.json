@@ -1,0 +1,75 @@
+{
+  "name": "Tanmay Chouhan - Full Stack Developer",
+  "short_name": "Tanmay Portfolio",
+  "description": "Portfolio of Tanmay Chouhan, a passionate Full Stack Developer and Computer Science student at VIT Bhopal.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#020409",
+  "theme_color": "#3CCF91",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "categories": ["productivity", "utilities"],
+  "icons": [
+    {
+      "src": "/tan629.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/tan629.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/tan629.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/tan629.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Homepage of Tanmay Chouhan's Portfolio"
+    },
+    {
+      "src": "/tan629.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Mobile view of Tanmay Chouhan's Portfolio"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Projects",
+      "short_name": "Projects",
+      "description": "View my projects",
+      "url": "/projects",
+      "icons": [
+        {
+          "src": "/tan629.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Contact",
+      "short_name": "Contact",
+      "description": "Get in touch",
+      "url": "/#contact",
+      "icons": [
+        {
+          "src": "/tan629.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+} 

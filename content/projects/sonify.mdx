@@ -1,0 +1,367 @@
+---
+title: "Sonify - Music Streaming App"
+summary: "A Spotify-like music streaming application with OAuth 2.0 authentication, playlist management, and Redis caching. Features 20% improved server response time through MongoDB indexing."
+image: "https://via.placeholder.com/800x400?text=Sonify+Music+App&bg=F6A20E&color=000000"
+date: "2024-02-20"
+category: "Web Application"
+githubLink: "https://github.com/Tau629-D3V/sonify-music"
+deployLink: "https://sonify-music.vercel.app"
+tags: ["MERN Stack", "OAuth 2.0", "Redis", "MongoDB", "Music API"]
+---
+
+# Sonify - Music Streaming App
+
+A modern music streaming platform inspired by Spotify, built with the MERN stack and featuring advanced caching, authentication, and playlist management capabilities.
+
+## Project Overview
+
+Sonify is a full-featured music streaming application that provides users with a seamless listening experience. The platform includes user authentication, playlist management, music discovery, and real-time streaming capabilities.
+
+<TechStack technologies={["React.js", "Node.js", "Express.js", "MongoDB", "Redis", "OAuth 2.0", "Spotify API", "Socket.io", "JWT"]} />
+
+## Key Features
+
+<FeatureList features={[
+  "OAuth 2.0 authentication with multiple providers",
+  "Real-time music streaming with WebSocket support",
+  "Advanced playlist creation and management",
+  "Redis caching for improved performance",
+  "MongoDB indexing for faster queries",
+  "Responsive design with modern UI/UX",
+  "Music search and discovery features",
+  "User profile and preferences management",
+  "Social features (follow, share playlists)",
+  "Offline playlist caching"
+]} />
+
+## Technical Architecture
+
+### Frontend Architecture
+- **Framework**: React.js with functional components and hooks
+- **State Management**: Redux Toolkit for global state
+- **UI Library**: Material-UI with custom theming
+- **Routing**: React Router v6 with protected routes
+- **Audio Handling**: Web Audio API with custom controls
+- **Real-time**: Socket.io client for live features
+
+### Backend Architecture
+- **Runtime**: Node.js with Express.js framework
+- **Database**: MongoDB with Mongoose ODM
+- **Caching**: Redis for session and data caching
+- **Authentication**: OAuth 2.0 with JWT tokens
+- **File Storage**: AWS S3 for music file storage
+- **Search**: Elasticsearch for music search functionality
+
+### Database Design
+```javascript
+// User Schema
+{
+  _id: ObjectId,
+  email: String,
+  username: String,
+  profileImage: String,
+  playlists: [ObjectId],
+  following: [ObjectId],
+  followers: [ObjectId],
+  preferences: {
+    theme: String,
+    language: String,
+    autoplay: Boolean
+  },
+  createdAt: Date,
+  lastActive: Date
+}
+
+// Playlist Schema
+{
+  _id: ObjectId,
+  name: String,
+  description: String,
+  owner: ObjectId,
+  tracks: [{
+    trackId: String,
+    addedAt: Date,
+    position: Number
+  }],
+  isPublic: Boolean,
+  coverImage: String,
+  followers: [ObjectId],
+  createdAt: Date,
+  updatedAt: Date
+}
+
+// Track Schema
+{
+  _id: ObjectId,
+  title: String,
+  artist: String,
+  album: String,
+  duration: Number,
+  genre: [String],
+  audioUrl: String,
+  coverImage: String,
+  playCount: Number,
+  likes: [ObjectId],
+  createdAt: Date
+}
+```
+
+## Performance Optimizations
+
+<InfoAlert title="Performance Achievements" type="success">
+  Achieved 20% improvement in server response time through strategic optimizations.
+</InfoAlert>
+
+### 1. Database Optimizations
+- **Indexing Strategy**: Compound indexes on frequently queried fields
+- **Aggregation Pipelines**: Optimized queries for analytics
+- **Connection Pooling**: Efficient MongoDB connections
+- **Data Pagination**: Implemented cursor-based pagination
+
+### 2. Caching Strategy
+```javascript
+// Redis Caching Implementation
+const cacheMiddleware = (duration) => {
+  return async (req, res, next) => {
+    const key = `cache:${req.originalUrl}`;
+    const cached = await redis.get(key);
+    
+    if (cached) {
+      return res.json(JSON.parse(cached));
+    }
+    
+    res.sendResponse = res.json;
+    res.json = (body) => {
+      redis.setex(key, duration, JSON.stringify(body));
+      res.sendResponse(body);
+    };
+    next();
+  };
+};
+```
+
+### 3. Frontend Optimizations
+- **Code Splitting**: Lazy loading for route-based chunks
+- **Image Optimization**: WebP format with fallbacks
+- **Bundle Analysis**: Optimized bundle size
+- **Service Worker**: Offline functionality and caching
+
+## Authentication System
+
+### OAuth 2.0 Implementation
+```javascript
+// OAuth Configuration
+const oauthConfig = {
+  spotify: {
+    clientId: process.env.SPOTIFY_CLIENT_ID,
+    clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
+    redirectUri: process.env.SPOTIFY_REDIRECT_URI,
+    scope: 'user-read-private user-read-email playlist-read-private'
+  },
+  google: {
+    clientId: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    redirectUri: process.env.GOOGLE_REDIRECT_URI
+  }
+};
+```
+
+### JWT Token Management
+- **Access Tokens**: Short-lived (15 minutes)
+- **Refresh Tokens**: Long-lived (7 days)
+- **Token Rotation**: Automatic refresh mechanism
+- **Blacklisting**: Secure token invalidation
+
+## API Endpoints
+
+### Authentication
+- `POST /api/auth/spotify` - Spotify OAuth login
+- `POST /api/auth/google` - Google OAuth login
+- `POST /api/auth/refresh` - Refresh access token
+- `POST /api/auth/logout` - User logout
+
+### Music
+- `GET /api/music/search` - Search music tracks
+- `GET /api/music/track/:id` - Get track details
+- `GET /api/music/album/:id` - Get album details
+- `GET /api/music/artist/:id` - Get artist details
+
+### Playlists
+- `GET /api/playlists` - Get user playlists
+- `POST /api/playlists` - Create new playlist
+- `PUT /api/playlists/:id` - Update playlist
+- `DELETE /api/playlists/:id` - Delete playlist
+- `POST /api/playlists/:id/tracks` - Add tracks to playlist
+
+### User Management
+- `GET /api/users/profile` - Get user profile
+- `PUT /api/users/profile` - Update user profile
+- `GET /api/users/:id/follow` - Follow user
+- `DELETE /api/users/:id/follow` - Unfollow user
+
+## Installation Guide
+
+<InfoAlert title="System Requirements" type="info">
+  Requires Node.js v16+, MongoDB v5+, and Redis v6+ for optimal performance.
+</InfoAlert>
+
+### 1. Environment Setup
+```bash
+# Clone repository
+git clone https://github.com/Tau629-D3V/sonify-music.git
+cd sonify-music
+
+# Install dependencies
+npm install
+cd client && npm install
+cd ..
+```
+
+### 2. Environment Variables
+Create `.env` file in the root directory:
+```env
+# Server Configuration
+PORT=5000
+NODE_ENV=development
+
+# Database
+MONGODB_URI=mongodb://localhost:27017/sonify
+REDIS_URL=redis://localhost:6379
+
+# JWT
+JWT_SECRET=your_jwt_secret_key
+JWT_REFRESH_SECRET=your_refresh_secret_key
+
+# OAuth Providers
+SPOTIFY_CLIENT_ID=your_spotify_client_id
+SPOTIFY_CLIENT_SECRET=your_spotify_client_secret
+SPOTIFY_REDIRECT_URI=http://localhost:5000/api/auth/spotify/callback
+
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+GOOGLE_REDIRECT_URI=http://localhost:5000/api/auth/google/callback
+
+# AWS S3 (for file storage)
+AWS_ACCESS_KEY_ID=your_aws_access_key
+AWS_SECRET_ACCESS_KEY=your_aws_secret_key
+AWS_BUCKET_NAME=your_s3_bucket_name
+AWS_REGION=us-east-1
+```
+
+### 3. Database Setup
+```bash
+# Start MongoDB
+mongod
+
+# Start Redis
+redis-server
+
+# Run database migrations
+npm run db:migrate
+```
+
+### 4. Start Development Servers
+```bash
+# Start backend server
+npm run dev
+
+# Start frontend development server
+cd client && npm start
+```
+
+## Deployment Strategy
+
+<ProjectLinks 
+  githubUrl="https://github.com/Tau629-D3V/sonify-music"
+  liveUrl="https://sonify-music.vercel.app"
+  demoUrl="https://sonify-demo.vercel.app"
+/>
+
+### Production Deployment
+1. **Backend**: Deploy to AWS EC2 or Heroku
+2. **Frontend**: Deploy to Vercel or Netlify
+3. **Database**: Use MongoDB Atlas for cloud database
+4. **Caching**: Use Redis Cloud for managed Redis
+5. **CDN**: CloudFront for static assets
+
+### Docker Deployment
+```dockerfile
+# Backend Dockerfile
+FROM node:16-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production
+COPY . .
+EXPOSE 5000
+CMD ["npm", "start"]
+```
+
+## Monitoring & Analytics
+
+### Performance Monitoring
+- **Response Time**: Track API response times
+- **Error Rates**: Monitor application errors
+- **User Metrics**: Track user engagement
+- **Cache Hit Rates**: Monitor Redis performance
+
+### Analytics Implementation
+```javascript
+// Analytics middleware
+const analyticsMiddleware = (req, res, next) => {
+  const start = Date.now();
+  
+  res.on('finish', () => {
+    const duration = Date.now() - start;
+    analytics.track('api_request', {
+      endpoint: req.path,
+      method: req.method,
+      statusCode: res.statusCode,
+      duration: duration,
+      userId: req.user?.id
+    });
+  });
+  
+  next();
+};
+```
+
+## Security Features
+
+- **OAuth 2.0**: Secure third-party authentication
+- **JWT Tokens**: Stateless authentication
+- **Rate Limiting**: API request throttling
+- **Input Validation**: Comprehensive sanitization
+- **CORS**: Cross-origin resource sharing
+- **HTTPS**: Secure communication
+- **Environment Variables**: Secure configuration
+
+## Future Roadmap
+
+<FeatureList title="Upcoming Features" features={[
+  "AI-powered music recommendations",
+  "Collaborative playlists with real-time editing",
+  "Podcast support and management",
+  "Advanced audio equalizer and effects",
+  "Social features (comments, sharing)",
+  "Mobile application (React Native)",
+  "Voice commands and smart assistant",
+  "Integration with smart home devices",
+  "Advanced analytics dashboard",
+  "Multi-language support"
+]} />
+
+## Contributing
+
+We welcome contributions from the community! Please read our contributing guidelines before submitting pull requests.
+
+<InfoAlert title="Development Setup" type="info">
+  Fork the repository, set up the development environment, and submit your contributions through pull requests.
+</InfoAlert>
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+---
+
+*Built with ❤️ using React, Node.js, and modern web technologies* 
