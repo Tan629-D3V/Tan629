@@ -101,7 +101,7 @@ export default function ContactMe({ contactMe }) {
           transition="all 0.4s ease"
           _hover={{ transform: 'scale(1.1)' }}
         >
-          <Link href="https://github.com/Tau629-D3V" isExternal>
+          <Link href="https://github.com/Tan629-D3V" isExternal>
             <Button
               pos="static"
               color="white"
@@ -156,7 +156,7 @@ export default function ContactMe({ contactMe }) {
             </Button>
           </Link>
           
-          <Link href="/Tanmay_Chouhan_Resume.pdf" isExternal>
+          <Link href="https://drive.google.com/file/d/1sG4-zdVapM_rTww-ToOll8-CQCYA-Pqv/view?usp=sharing" isExternal>
             <Button
               pos="static"
               color="white"
