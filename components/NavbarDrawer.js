@@ -50,11 +50,6 @@ const NavbarDrawer = ({ isOpen, onClose }) => {
                 Projects
               </Button>
             </NextLink>
-            <NextLink passHref href="/blog">
-              <Button as="a" fontSize="16px" variant="ghost">
-                Blog
-              </Button>
-            </NextLink>
           </Stack>
         </DrawerBody>
       </DrawerContent>

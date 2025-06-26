@@ -1,6 +1,7 @@
 'use client'
 
-import { Box, Text, keyframes } from '@chakra-ui/react'
+import { Box, Text } from '@chakra-ui/react'
+import { keyframes } from '@chakra-ui/system'
 
 const pulseGlow = keyframes`
   0% { text-shadow: 0 0 10px rgba(220, 220, 220, 0.2); }
@@ -37,6 +38,8 @@ export default function Footer() {
         _hover={{
           animation: `${pulseGlow} 3s ease-in-out infinite`,
         }}
+        maxW={{ base: '95vw', md: '100%' }}
+        overflowWrap="break-word"
       >
         TANMAY
       </Text>

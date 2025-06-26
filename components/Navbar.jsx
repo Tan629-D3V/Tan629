@@ -61,20 +61,22 @@ export default function Navbar({ enableTransition }) {
       >
         <Box
           as={Link}
-          href="https://tanmaychouhan.me"
+          href="https://tan629.vercel.app/"
           display="flex"
           alignItems="center"
           className="navbar-logo-wrapper"
           _hover={{ opacity: 0.9, transform: 'scale(1.2)' }}
           transition="all 0.4s cubic-bezier(0.4, 0, 0.2, 1)"
-          style={{ width: 140, height: 140, justifyContent: 'center', margin: '0 1rem', animation: 'fadeInLogo 1.2s ease' }}
+          w={{ base: 12, md: 20 }}
+          h={{ base: 12, md: 20 }}
+          style={{ justifyContent: 'center', margin: '0 1rem', animation: 'fadeInLogo 1.2s ease' }}
           borderRadius="full"
         >
           <svg
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
-            width="120"
-            height="120"
+            width="100%"
+            height="100%"
             viewBox="0 0 500 500"
             className="navbar-logo-svg"
             style={{ display: 'block' }}
@@ -89,18 +91,18 @@ export default function Navbar({ enableTransition }) {
         {isLargerThan768 ? (
           <Box mr={7} color="displayColor">
             <NextLink passHref href="/">
-              <Button as="a" p="4" fontSize="16px" variant="ghost" transition="all 0.2s ease-in-out" _hover={{ color: 'white', bg: 'rgba(60, 207, 145, 0.1)' }}>
+              <Button as="a" p="4" fontSize={{ base: 'sm', md: 'lg' }} variant="ghost" transition="all 0.2s ease-in-out" _hover={{ color: 'white', bg: 'rgba(60, 207, 145, 0.1)' }}>
                 Home
               </Button>
             </NextLink>
             <NextLink passHref href="/projects">
-              <Button as="a" p="4" fontSize="16px" variant="ghost" transition="all 0.2s ease-in-out" _hover={{ color: 'white', bg: 'rgba(60, 207, 145, 0.1)' }}>
+              <Button as="a" p="4" fontSize={{ base: 'sm', md: 'lg' }} variant="ghost" transition="all 0.2s ease-in-out" _hover={{ color: 'white', bg: 'rgba(60, 207, 145, 0.1)' }}>
                 Projects
               </Button>
             </NextLink>
           </Box>
         ) : (
-          <Icon as={AiOutlineMenu} w={7} h={7} onClick={onOpen} />
+          <Icon as={AiOutlineMenu} w={{ base: 6, md: 7 }} h={{ base: 6, md: 7 }} onClick={onOpen} />
         )}
       </Flex>
       <NavbarDrawer isOpen={isOpen} onClose={onClose} />
