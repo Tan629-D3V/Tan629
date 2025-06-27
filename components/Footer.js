@@ -15,7 +15,7 @@ export default function Footer() {
       as="footer"
       bg="transparent"
       w="100%"
-      h={{ base: '180px', md: '240px' }}
+      h={{ base: '15px', md: '240px' }}
       py={10}
       display="flex"
       alignItems="center"
@@ -26,9 +26,9 @@ export default function Footer() {
         mt={{ base: '-2rem', md: '-15rem' }}
         mb={{ base: '-2rem', md: '-22rem' }}
         lineHeight="1"
-        fontSize={{ base: '9xl', md: '22rem' }}
+        fontSize={{ base: '4.7rem', md: '22rem' }}
         fontWeight="thin"
-        letterSpacing={{ base: '0.2em', md: '0.03em' }}
+        letterSpacing={{ base: '0.2em', sm: '0.12em', md: '0.03em' }}
         fontFamily="sans-serif"
         bgGradient="linear(to-r, gray.600, gray.400)"
         bgClip="text"
@@ -38,7 +38,7 @@ export default function Footer() {
         _hover={{
           animation: `${pulseGlow} 3s ease-in-out infinite`,
         }}
-        maxW={{ base: '95vw', md: '100%' }}
+        maxW={{ base: '100vw', md: '100%' }}
         overflowWrap="break-word"
       >
         TANMAY

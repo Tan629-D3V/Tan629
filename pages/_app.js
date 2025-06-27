@@ -3,6 +3,7 @@ import { Global, css } from '@emotion/react'
 import { prismDarkTheme } from '../styles/prism'
 import customTheme from '../styles/theme'
 import BackToTopButton from '../components/BackToTopButton'
+import LiquidGlassBackground from '../components/LiquidGlassBackground'
 
 const GlobalStyle = ({ children }) => {
   return (
@@ -22,8 +23,8 @@ const GlobalStyle = ({ children }) => {
             min-width: 356px;
           }
           body {
-            background-color: #020409;
-            background-image: linear-gradient(195deg, #111d3c, #020409 50%);
+            background-color: #000;
+            background-image: linear-gradient(195deg,rgb(17, 29, 60), #020409 70%);
             background-attachment: fixed;
             color: #fff;
             font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
@@ -73,6 +74,7 @@ const GlobalStyle = ({ children }) => {
 function MyApp({ Component, pageProps }) {
   return (
     <ChakraProvider theme={customTheme}>
+      <LiquidGlassBackground />
       <GlobalStyle>
         <Component {...pageProps} />
         <BackToTopButton />

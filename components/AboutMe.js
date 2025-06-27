@@ -60,7 +60,7 @@ export default function AboutMe() {
 
   return (
     <>
-      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8}>
+      <SimpleGrid id="about-me" columns={{ base: 1, md: 2 }} spacing={{ base: 4, md: 8 }} px={{ base: 2, sm: 4, md: 8, lg: 16 }} py={{ base: 4, md: 8 }}>
         <SlideUpWhenVisible>
           <Stack spacing={4}>
             <Heading fontFamily="Ubuntu" fontSize="2xl" 
@@ -76,7 +76,7 @@ export default function AboutMe() {
               fontSize={{ base: '14px', md: '16px' }}
               whiteSpace="pre-line"
             >
-              Hey! I’m Tanmay Chouhan, a Computer Science student at {' '}
+              Hey! I'm Tanmay Chouhan, a Computer Science student at {' '}
               <MoreInfo
                 content={
                   <Image
@@ -88,7 +88,7 @@ export default function AboutMe() {
                 }
                 text="Vellore Institute of Technology"
               />
-               I’ve been close to a computer since an early age and passionate
+               I've been close to a computer since an early age and passionate
                 about technology ever since. <br/> <br/> I really loved tinkering with 
                 simple scripts in school, and from that spark I taught myself {' '}
               <MoreInfo
@@ -97,7 +97,7 @@ export default function AboutMe() {
               />
               —fast-forward to today, I build full-stack applications and had the 
               privilege to work at Suvidha Foundation and Globalprime Healthcare. 
-              I’m all about crafting seamless user experiences, automating workflows,
+              I'm all about crafting seamless user experiences, automating workflows,
                and architecting scalable solutions.
             <br/> <br/>
               I'm interested in building something awesome with code and
@@ -118,7 +118,7 @@ export default function AboutMe() {
               />
               <br />
               <br />
-              When I’m not coding, you’ll find me chilling with my friends, 
+              When I'm not coding, you'll find me chilling with my friends, 
               binge-watching the latest Netflix series, or—if the mood
                strikes—lacing up my gloves and hitting the bag! 🥊
             </Text>

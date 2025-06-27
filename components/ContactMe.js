@@ -21,14 +21,18 @@ export default function ContactMe({ contactMe }) {
     })
   }
   return (
-    <Stack alignItems="center" justifyContent="center" w="100%" spacing={10} mt={{ base: '2rem', md: '5rem' }} mb={{ base: '2rem', md: '2rem' }}>
+    <Stack alignItems="center" justifyContent="center" 
+    w="100%" spacing={10} 
+    mt={{ base: '0', md: '5rem' }} 
+    mb={{ base: '0', md: '2rem' }}
+    >
       <ScaleFade
         initialScale={0.9}
         in={true}
         transition={{ enter: { duration: 0.7, delay: 0.2 } }}
       >
         <Heading
-          fontSize={{ base: '4xl', md: '7xl' }}
+          fontSize={{ base: '8xl', md: '7xl' }}
            bgGradient="linear(to-r, gray.600, gray.400)"
             bgClip="text"
           textAlign="center"
@@ -79,9 +83,8 @@ export default function ContactMe({ contactMe }) {
                 display={{ base: 'block', md: 'inline' }}
               >
                 {' '}
-                innovative projects
+                innovative projects.
               </chakra.span>
-              .
               <br />
               Whether it's a full-time role, internship, or collaboration -
               let's connect and build something amazing together!
