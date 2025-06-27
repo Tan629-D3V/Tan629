@@ -33,14 +33,18 @@ export default function Introduction({ introduction }) {
 
   return (
     <Stack
-      alignItems="flex-start"
-      justifyContent="flex-start"
+      alignItems={{ base: 'center', md: 'flex-start' }}
+      justifyContent={{ base: 'center', md: 'flex-start' }}
       w="100%"
-      spacing={{ base: 4, md: 6 }}
+      minH="80vh"
+      spacing={{ base: 6, md: 6 }}
+      px={{ base: 0, md: 0 }}
+      textAlign={{ base: 'center', md: 'left' }}
     >
       <Box
         display="inline-block"
         pos="relative"
+        mx={{ base: '0', md: 0 }}
         _hover={{
           transform: 'scale(1.08)',
           textShadow: '0 0 20px rgba(60, 207, 145, 0.3)'
@@ -48,10 +52,10 @@ export default function Introduction({ introduction }) {
       >
         <Image
           pos="absolute"
-          zIndex={0}
+          zIndex={1}
           top={{ base: '0', md: '-15' }}
           left={{ base: '-4', md: '-10' }}
-          w={{ base: '70px', md: '150px' }}
+          w={{ base: '50px', md: '150px' }}
           alt="Decorative icon"
           filter="invert(0.1)"
           src="https://svgsilh.com/svg/26432.svg"
@@ -64,7 +68,7 @@ export default function Introduction({ introduction }) {
           pos="relative"
           zIndex={1}
           color="button1"
-          fontSize="display2"
+          fontSize={{ base: '3xl', md: 'display2' }}
           fontWeight="medium"
           transition="all 0.3s ease"
           display="inline-block"
@@ -83,9 +87,9 @@ export default function Introduction({ introduction }) {
         paddingBottom={4}
         bgGradient="linear(to-r, gray.600, gray.400)"
         bgClip="text"
-        fontSize="display"
+        fontSize={{ base: '4.5rem', md: 'display' }}
         lineHeight={'95%'}
-        letterSpacing={{ sm: '-1.2px', md: '-1.8px' }}
+        letterSpacing={{ sm: '-1.5px', md: '-1.8px' }}
         display="inline-block"
         transition="all 0.3s ease"
         _hover={{
@@ -100,7 +104,7 @@ export default function Introduction({ introduction }) {
       <Heading
         bgGradient="linear(to-r, gray.600, gray.400)"
         bgClip="text"
-        fontSize="display2"
+        fontSize={{ base: 'lg', md: 'display2' }}
         fontWeight="medium"
         letterSpacing="-1.6px"
         display="inline-block"
@@ -163,13 +167,13 @@ export default function Introduction({ introduction }) {
             );
           })()}
         </Box>{' '}
-        A self-taught developer with an<br />
+         A self-taught developer with an<br />
         interest in Computer Science.
       </Heading>
 
       <Text 
         color="textSecondary" 
-        fontSize="display3"
+        fontSize={{ base: 'md', md: 'display3' }}
         display="inline-block"
         transition="all 0.3s ease"
         _hover={{
@@ -302,7 +306,7 @@ export default function Introduction({ introduction }) {
         mb={{ base: 2, md: 4 }}
         style={{ position: 'relative', height: '54px', cursor: 'pointer' }}
         onClick={() => {
-          const el = document.getElementById('about');
+          const el = document.getElementById('about-me');
           if (el) {
             el.scrollIntoView({ behavior: 'smooth' });
           }
@@ -312,7 +316,7 @@ export default function Introduction({ introduction }) {
         tabIndex={0}
         onKeyPress={e => {
           if (e.key === 'Enter' || e.key === ' ') {
-            const el = document.getElementById('about');
+            const el = document.getElementById('about-me');
             if (el) {
               el.scrollIntoView({ behavior: 'smooth' });
             }
