@@ -8,7 +8,7 @@ import {
   SlideFade,
 } from '@chakra-ui/react'
 import useMediaQuery from '../hook/useMediaQuery'
-import { FaLinkedin, FaEnvelope, FaGithub, FaFileAlt } from 'react-icons/fa'
+import { FaLinkedin, FaEnvelope, FaGithub, FaFileAlt, FaRegComments } from 'react-icons/fa'
 import ReactGA from 'react-ga4'
 import { ScaleFade } from '@chakra-ui/react'
 
@@ -98,6 +98,30 @@ export default function ContactMe({ contactMe }) {
         in={true}
         transition={{ enter: { duration: 1.0, delay: 0.6 } }}
       >
+        <Stack align="center" mb={6}>
+          <a href="mailto:tanmaychouhan826629@gmail.com?subject=Let%27s%20Talk" style={{ textDecoration: 'none' }}>
+            <Button
+              variant="ghost"
+              color="white"
+              size={isLargerThan800 ? 'md' : 'sm'}
+              fontWeight="normal"
+              px={5}
+              py={3}
+              borderRadius="lg"
+              leftIcon={<FaRegComments color="#3CCF91" size={20} />}
+              transition="all 0.3s cubic-bezier(0.4,0,0.2,1)"
+              _hover={{
+                transform: 'translateY(-2px) scale(1.04)',
+                boxShadow: '0 4px 16px rgba(60, 207, 145, 0.15)',
+                bg: 'rgba(60, 207, 145, 0.08)',
+                color: 'white',
+              }}
+              _active={{ transform: 'translateY(-1px) scale(1.01)' }}
+            >
+              Let's Talk
+            </Button>
+          </a>
+        </Stack>
         <Stack
           isInline
           spacing={4}

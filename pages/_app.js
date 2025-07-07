@@ -4,6 +4,7 @@ import { prismDarkTheme } from '../styles/prism'
 import customTheme from '../styles/theme'
 import BackToTopButton from '../components/BackToTopButton'
 import LiquidGlassBackground from '../components/LiquidGlassBackground'
+import '../styles/globals.css'
 
 const GlobalStyle = ({ children }) => {
   return (

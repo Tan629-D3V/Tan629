@@ -15,20 +15,22 @@ export default function Footer() {
       as="footer"
       bg="transparent"
       w="100%"
-      h={{ base: '15px', md: '240px' }}
-      py={10}
+      minH={{ base: '60px', md: '180px' }}
       display="flex"
       alignItems="center"
       justifyContent="center"
       overflow="hidden"
+      p={0}
+      m={0}
     >
       <Text
-        mt={{ base: '-2rem', md: '-15rem' }}
-        mb={{ base: '-2rem', md: '-22rem' }}
+        mt={{ base: 0, md: '-8rem' }}
+        mb={{ base: 0, md: '-12rem' }}
+        mx={0}
         lineHeight="1"
-        fontSize={{ base: '4.7rem', md: '22rem' }}
+        fontSize={{ base: '2.5rem', sm: '3.5rem', md: '8rem', lg: '14rem', xl: '20rem' }}
         fontWeight="thin"
-        letterSpacing={{ base: '0.2em', sm: '0.12em', md: '0.03em' }}
+        letterSpacing={{ base: '0.12em', md: '0.05em' }}
         fontFamily="sans-serif"
         bgGradient="linear(to-r, gray.600, gray.400)"
         bgClip="text"
@@ -38,7 +40,7 @@ export default function Footer() {
         _hover={{
           animation: `${pulseGlow} 3s ease-in-out infinite`,
         }}
-        maxW={{ base: '100vw', md: '100%' }}
+        maxW="100vw"
         overflowWrap="break-word"
       >
         TANMAY

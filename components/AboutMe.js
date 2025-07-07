@@ -12,8 +12,10 @@ import {
   PopoverContent,
   PopoverBody,
   PopoverArrow,
+  Button,
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
+import { FaEnvelope, FaHandshake } from 'react-icons/fa'
 
 import useMediaQuery from '../hook/useMediaQuery'
 import SlideUpWhenVisible from '../hook/SlideUpWhenVisible'
@@ -122,6 +124,52 @@ export default function AboutMe() {
               binge-watching the latest Netflix series, or—if the mood
                strikes—lacing up my gloves and hitting the bag! 🥊
             </Text>
+            <Stack direction={{ base: 'column', sm: 'row' }} spacing={3} mt={4}>
+              <a href="mailto:tanmaychouhan826629@gmail.com?subject=Hire%20Me" style={{ textDecoration: 'none' }}>
+                <Button
+                  variant="ghost"
+                  color="white"
+                  size={isLargerThan800 ? 'md' : 'sm'}
+                  fontWeight="normal"
+                  px={5}
+                  py={3}
+                  borderRadius="lg"
+                  leftIcon={<FaEnvelope color="#3CCF91" size={20} />}
+                  transition="all 0.3s cubic-bezier(0.4,0,0.2,1)"
+                  _hover={{
+                    transform: 'translateY(-2px) scale(1.04)',
+                    boxShadow: '0 4px 16px rgba(60, 207, 145, 0.15)',
+                    bg: 'rgba(60, 207, 145, 0.08)',
+                    color: 'white',
+                  }}
+                  _active={{ transform: 'translateY(-1px) scale(1.01)' }}
+                >
+                  Hire Me
+                </Button>
+              </a>
+              <a href="mailto:tanmaychouhan826629@gmail.com?subject=Collaboration%20Opportunity" style={{ textDecoration: 'none' }}>
+                <Button
+                  variant="ghost"
+                  color="white"
+                  size={isLargerThan800 ? 'md' : 'sm'}
+                  fontWeight="normal"
+                  px={5}
+                  py={3}
+                  borderRadius="lg"
+                  leftIcon={<FaHandshake color="#3CCF91" size={20} />}
+                  transition="all 0.3s cubic-bezier(0.4,0,0.2,1)"
+                  _hover={{
+                    transform: 'translateY(-2px) scale(1.04)',
+                    boxShadow: '0 4px 16px rgba(60, 207, 145, 0.15)',
+                    bg: 'rgba(60, 207, 145, 0.08)',
+                    color: 'white',
+                  }}
+                  _active={{ transform: 'translateY(-1px) scale(1.01)' }}
+                >
+                  Collaborate
+                </Button>
+              </a>
+            </Stack>
           </Stack>
         </SlideUpWhenVisible>
         <SlideUpWhenVisible>

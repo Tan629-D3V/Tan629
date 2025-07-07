@@ -1,0 +1,11 @@
+p {
+  font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  color: #e5e7eb; /* light gray for strong contrast on dark bg */
+  margin-bottom: 1.25em;
+}
+
+body {
+  background: #000;
+} 

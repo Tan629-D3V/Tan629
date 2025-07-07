@@ -22,6 +22,14 @@ export default class MyDocument extends NextDocument {
           <link rel="icon" type="image/png" sizes="16x16" href="/tan629.png" />
           <link rel="apple-touch-icon" sizes="180x180" href="/tan629.png" />
           <link rel="shortcut icon" href="/tan629.png" />
+
+          <title>Abdulrahman Tan | Full Stack Developer</title>
+          <meta name="description" content="Abdulrahman Tan is a Full Stack Developer skilled in React, Next.js, Node.js, and modern web technologies. Building performant, accessible, and beautiful web applications." />
+          <meta property="og:title" content="Abdulrahman Tan | Full Stack Developer" />
+          <meta property="og:description" content="Full Stack Developer skilled in React, Next.js, Node.js, and modern web technologies. Building performant, accessible, and beautiful web applications." />
+          <meta property="og:image" content="/Tan629logo.png" />
+          <meta property="og:type" content="website" />
+          <meta property="og:site_name" content="Abdulrahman Tan Portfolio" />
         </Head>
         <body>
           <Main />
