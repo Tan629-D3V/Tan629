@@ -179,7 +179,7 @@ export default function Cards({ imageURL, title, slug, desc, tag }) {
                   color: 'white',
                   transform: 'scale(1.02)',
                 }}
-                mt={2}
+                mx={2}
               >
                 {desc}
               </Text>

@@ -98,7 +98,7 @@ export default function ContactMe({ contactMe }) {
         in={true}
         transition={{ enter: { duration: 1.0, delay: 0.6 } }}
       >
-        <Stack align="center" mb={6}>
+        {/* <Stack align="center" mb={6}>
           <a href="mailto:tanmaychouhan826629@gmail.com?subject=Let%27s%20Talk" style={{ textDecoration: 'none' }}>
             <Button
               variant="ghost"
@@ -121,7 +121,7 @@ export default function ContactMe({ contactMe }) {
               Let's Talk
             </Button>
           </a>
-        </Stack>
+        </Stack> */}
         <Stack
           isInline
           spacing={4}

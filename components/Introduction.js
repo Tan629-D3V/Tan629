@@ -37,33 +37,18 @@ export default function Introduction({ introduction }) {
       justifyContent={{ base: 'center', md: 'flex-start' }}
       w="100%"
       minH="80vh"
-      spacing={{ base: 6, md: 6 }}
-      px={{ base: 0, md: 0 }}
+      spacing={{ base: 6, md: 4 }}
       textAlign={{ base: 'center', md: 'left' }}
     >
       <Box
         display="inline-block"
         pos="relative"
-        mx={{ base: '0', md: 0 }}
         _hover={{
           transform: 'scale(1.08)',
           textShadow: '0 0 20px rgba(60, 207, 145, 0.3)'
         }}
       >
-        <Image
-          pos="absolute"
-          zIndex={1}
-          top={{ base: '0', md: '-15' }}
-          left={{ base: '-4', md: '-10' }}
-          w={{ base: '50px', md: '150px' }}
-          alt="Decorative icon"
-          filter="invert(0.1)"
-          src="https://svgsilh.com/svg/26432.svg"
-          opacity={0.6}
-          transition="all 0.3s ease"
-          _hover={{ opacity: 0.8, transform: 'scale(1.05)' }}
-          loading="lazy"
-        />
+        
         <Text
           pos="relative"
           zIndex={1}
@@ -85,6 +70,7 @@ export default function Introduction({ introduction }) {
         pos="relative"
         zIndex={1}
         paddingBottom={4}
+        mt={-6}  
         bgGradient="linear(to-r, gray.600, gray.400)"
         bgClip="text"
         fontSize={{ base: '4.5rem', md: 'display' }}
@@ -302,7 +288,7 @@ export default function Introduction({ introduction }) {
         justifyContent="center"
         alignItems="center"
         w="100%"
-        mt={{ base: 8, md: 10 }}
+        mt={{ base: 8, md: 1 }}
         mb={{ base: 2, md: 4 }}
         style={{ position: 'relative', height: '54px', cursor: 'pointer' }}
         onClick={() => {

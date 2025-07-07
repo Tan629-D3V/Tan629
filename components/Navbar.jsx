@@ -46,19 +46,20 @@ export default function Navbar({ enableTransition }) {
   `
 
   return (
-    <Box pos="relative" zIndex={99}>
+    <Box pos="sticky" top={0} zIndex={200}>
       <Flex
         as="nav"
         align="center"
         justify="space-between"
         direction="row"
         w="100%"
-        px={{ base: 10, md: 24 }}
-        py="2"
+        px={{ base: 10, md: 36 }}
+        py={{ base: 2, md: 6 }}
         bg="rgba(0, 0, 0, 0)"
         backdropFilter="blur(10px)"
         // borderBottom="1px solid rgba(0, 0, 0, 0))"
         // boxShadow="0 0 25px rgba(0, 0, 0, 0)"
+        style={{ position: 'sticky', top: 0, zIndex: 200 }}
       >
         <Box
           as={Link}

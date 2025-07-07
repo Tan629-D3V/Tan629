@@ -12,10 +12,8 @@ import {
   PopoverContent,
   PopoverBody,
   PopoverArrow,
-  Button,
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
-import { FaEnvelope, FaHandshake } from 'react-icons/fa'
 
 import useMediaQuery from '../hook/useMediaQuery'
 import SlideUpWhenVisible from '../hook/SlideUpWhenVisible'
@@ -62,22 +60,13 @@ export default function AboutMe() {
 
   return (
     <>
-      <SimpleGrid id="about-me" columns={{ base: 1, md: 2 }} spacing={{ base: 4, md: 8 }} px={{ base: 2, sm: 4, md: 8, lg: 16 }} py={{ base: 4, md: 8 }}>
+      <SimpleGrid id="about-me" columns={{ base: 1, md: 2 }} spacing={{ base: 4, md: 8 }}>
         <SlideUpWhenVisible>
-          <Stack spacing={4}>
-            <Heading fontFamily="Ubuntu" fontSize="2xl" 
-            transition="all 0.3s ease"
-            _hover={{
-            transform: 'scale(1.07)',
-            
-          }}>
+          <Stack spacing={{ base: 3, md: 4 }}>
+            <Heading fontFamily="Ubuntu" fontSize={{ base: 'xl', md: '2xl' }} transition="all 0.3s ease" _hover={{ transform: 'scale(1.07)' }}>
               ⚡ About Me
             </Heading>
-            <Text
-              color="textSecondary"
-              fontSize={{ base: '14px', md: '16px' }}
-              whiteSpace="pre-line"
-            >
+            <Text color="textSecondary" fontSize={{ base: '14px', md: '16px' }} whiteSpace="pre-line">
               Hey! I'm Tanmay Chouhan, a Computer Science student at {' '}
               <MoreInfo
                 content={
@@ -124,84 +113,34 @@ export default function AboutMe() {
               binge-watching the latest Netflix series, or—if the mood
                strikes—lacing up my gloves and hitting the bag! 🥊
             </Text>
-            <Stack direction={{ base: 'column', sm: 'row' }} spacing={3} mt={4}>
-              <a href="mailto:tanmaychouhan826629@gmail.com?subject=Hire%20Me" style={{ textDecoration: 'none' }}>
-                <Button
-                  variant="ghost"
-                  color="white"
-                  size={isLargerThan800 ? 'md' : 'sm'}
-                  fontWeight="normal"
-                  px={5}
-                  py={3}
-                  borderRadius="lg"
-                  leftIcon={<FaEnvelope color="#3CCF91" size={20} />}
-                  transition="all 0.3s cubic-bezier(0.4,0,0.2,1)"
-                  _hover={{
-                    transform: 'translateY(-2px) scale(1.04)',
-                    boxShadow: '0 4px 16px rgba(60, 207, 145, 0.15)',
-                    bg: 'rgba(60, 207, 145, 0.08)',
-                    color: 'white',
-                  }}
-                  _active={{ transform: 'translateY(-1px) scale(1.01)' }}
-                >
-                  Hire Me
-                </Button>
-              </a>
-              <a href="mailto:tanmaychouhan826629@gmail.com?subject=Collaboration%20Opportunity" style={{ textDecoration: 'none' }}>
-                <Button
-                  variant="ghost"
-                  color="white"
-                  size={isLargerThan800 ? 'md' : 'sm'}
-                  fontWeight="normal"
-                  px={5}
-                  py={3}
-                  borderRadius="lg"
-                  leftIcon={<FaHandshake color="#3CCF91" size={20} />}
-                  transition="all 0.3s cubic-bezier(0.4,0,0.2,1)"
-                  _hover={{
-                    transform: 'translateY(-2px) scale(1.04)',
-                    boxShadow: '0 4px 16px rgba(60, 207, 145, 0.15)',
-                    bg: 'rgba(60, 207, 145, 0.08)',
-                    color: 'white',
-                  }}
-                  _active={{ transform: 'translateY(-1px) scale(1.01)' }}
-                >
-                  Collaborate
-                </Button>
-              </a>
-            </Stack>
           </Stack>
         </SlideUpWhenVisible>
         <SlideUpWhenVisible>
           <Flex align="center" justify="center">
             <Box
               pos="relative"
-              maxW={{ base: '300px', lg: '350px' }}
-              maxH={{ base: '300px', lg: '350px' }}
+              maxW={{ base: '220px', sm: '260px', md: '300px', lg: '350px' }}
+              maxH={{ base: '220px', sm: '260px', md: '300px', lg: '350px' }}
               transition="all 0.3s ease"
-          // display="inline-block"
-          _hover={{
-            transform: 'scale(1.08)',
-            textShadow: '0 0 20px rgba(60, 207, 145, 0.3)'
-          }}
+              _hover={{ transform: 'scale(1.08)', textShadow: '0 0 20px rgba(60, 207, 145, 0.3)' }}
             >
               <Image
                 pos="absolute"
                 zIndex={3}
                 top="0px"
-                right={{ base: '-32px', lg: '-64px' }}
-                w={{ base: '100px', lg: '150px' }}
+                right={{ base: '-16px', sm: '-24px', md: '-32px', lg: '-64px' }}
+                w={{ base: '60px', sm: '80px', md: '100px', lg: '150px' }}
                 alt=""
                 filter="invert(0.1)"
                 src="https://svgsilh.com/svg/26432.svg"
               />
               <Image
-                w={{ base: '300px', lg: '350px' }}
-                h={{ base: '300px', lg: '350px' }}
+                w={{ base: '220px', sm: '260px', md: '300px', lg: '350px' }}
+                h={{ base: '220px', sm: '260px', md: '300px', lg: '350px' }}
                 objectFit="cover"
                 borderRadius="50%"
-                alt="Tanmay Chouhan"
-                src="https://imagizer.imageshack.com/img924/2606/4R44zN.jpg"
+                alt="Abdul Rahman"
+                src="/ME.jpg"
               />
             </Box>
           </Flex>
