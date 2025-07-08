@@ -17,52 +17,27 @@ export default function Index({ introduction, projects, contactMe }) {
     <>
       <Container enableTransition={true}>
         <Head>
-          <title>Tanmay Chouhan - Full Stack Developer & Software Engineer</title>
-          <meta content="Tanmay Chouhan - Full Stack Developer & Software Engineer" name="title" />
-          <meta content="tanmay chouhan, full stack developer, software engineer, computer science, vit bhopal, react developer, node.js developer, javascript, typescript, mern stack" name="keywords" />
-          <meta
-            content="Tanmay Chouhan is a passionate Full Stack Developer and Computer Science student at VIT Bhopal. Specializing in React.js, Node.js, and modern web technologies. Building innovative solutions with MERN stack and cloud technologies."
-            name="description"
-          />
-          <meta name="author" content="Tanmay Chouhan" />
-          <meta name="robots" content="index, follow" />
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <link rel="canonical" href="https://tanmaychouhan.dev" />
+          {/* Primary Meta Tags */}
+          <title>Tanmay Chouhan | Full Stack Developer</title>
+          <meta name="title" content="Tanmay Chouhan | Full Stack Developer" />
+          <meta name="description" content="Tanmay Chouhan is a Full Stack Developer skilled in React, Next.js, Node.js, and modern web technologies. Building performant, accessible, and beautiful web applications." />
 
           {/* Open Graph / Facebook */}
-          <meta content="website" property="og:type" />
-          <meta content="https://tanmaychouhan.dev" property="og:url" />
-          <meta
-            content="Tanmay Chouhan - Full Stack Developer & Software Engineer"
-            property="og:title"
-          />
-          <meta
-            content="Passionate Full Stack Developer and Computer Science student at VIT Bhopal. Specializing in React.js, Node.js, and modern web technologies."
-            property="og:description"
-          />
-          <meta
-            content="https://tanmaychouhan.dev/tan629.png"
-            property="og:image"
-          />
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://tanmaychouhan.dev/" />
+          <meta property="og:title" content="Tanmay Chouhan | Full Stack Developer" />
+          <meta property="og:description" content="Tanmay Chouhan is a Full Stack Developer skilled in React, Next.js, Node.js, and modern web technologies. Building performant, accessible, and beautiful web applications." />
+          <meta property="og:image" content="https://tanmaychouhan.dev/cropped_circle_image.png" />
           <meta property="og:image:width" content="1200" />
           <meta property="og:image:height" content="630" />
           <meta property="og:site_name" content="Tanmay Chouhan Portfolio" />
 
           {/* Twitter */}
-          <meta content="summary_large_image" property="twitter:card" />
-          <meta content="https://tanmaychouhan.dev" property="twitter:url" />
-          <meta
-            content="Tanmay Chouhan - Full Stack Developer & Software Engineer"
-            property="twitter:title"
-          />
-          <meta
-            content="Passionate Full Stack Developer and Computer Science student at VIT Bhopal. Specializing in React.js, Node.js, and modern web technologies."
-            property="twitter:description"
-          />
-          <meta
-            content="https://tanmaychouhan.dev/tan629.png"
-            property="twitter:image"
-          />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:url" content="https://tanmaychouhan.dev/" />
+          <meta name="twitter:title" content="Tanmay Chouhan | Full Stack Developer" />
+          <meta name="twitter:description" content="Tanmay Chouhan is a Full Stack Developer skilled in React, Next.js, Node.js, and modern web technologies. Building performant, accessible, and beautiful web applications." />
+          <meta name="twitter:image" content="https://tanmaychouhan.dev/cropped_circle_image.png" />
           <meta name="twitter:creator" content="@tanmay629" />
 
           {/* Additional SEO */}

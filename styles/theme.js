@@ -21,17 +21,17 @@ const customTheme = extendTheme({
     useSystemColorMode: false,
   },
   colors: {
-    background: '#000000',
-    secondary: '#080808',
-    complement: '#FA934F',
-    displayColor: '#FFFFFF',
-    textPrimary: '#D1D5DB',
-    textSecondary: '#8F9094',
-    button1: '#3CCF91',
-    button2: '#F6A20E',
-    button3: '#5132BF',
-    borderColor: '#111111',
-    logoGrey: '#8F9094',
+    background: '#000000', // Jet Black: Primary background for depth and sophistication
+    secondary: '#080808', // Carbon Black: Cards, containers, and layered elements
+    complement: '#FA934F', // Amber Highlight: Interactive elements, warnings
+    displayColor: '#FFFFFF', // Titanium White: Headings, key UI elements
+    textPrimary: '#D1D5DB', // Text Primary: Body copy, paragraphs
+    textSecondary: '#8F9094', // Text Secondary: Labels, captions
+    button1: '#3CCF91', // Emerald Accent (should be #3CCF91): Primary CTAs, success states
+    button2: '#F6A20E', // Secondary Accent: Secondary buttons
+    button3: '#5132BF', // Tertiary Accent: Special features, badges
+    borderColor: '#111111', // Borders: Dividers, input borders
+    logoGrey: '#8F9094', // Supporting color for logos/icons
   },
   fonts: {
     body: `Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"`,

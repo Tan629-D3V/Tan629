@@ -9,7 +9,7 @@ import {
 } from '@chakra-ui/layout'
 import NextLink from 'next/link'
 import Cards from './Card'
-import SlideUpWhenVisible from '../hook/SlideUpWhenVisible'
+import SectionReveal from '../hook/SlideUpWhenVisible'
 import ReactGA from 'react-ga4'
 
 export default function FeaturedProjects({ projects }) {
@@ -24,7 +24,7 @@ export default function FeaturedProjects({ projects }) {
     <>
       <Stack spacing={8} w="full">
         <SimpleGrid columns={{ sm: 1, md: 2 }} spacing={16}>
-          <SlideUpWhenVisible threshold={0.1}>
+          <SectionReveal direction="up">
             <Stack spacing={1}>
               <Stack
                 isInline
@@ -70,9 +70,9 @@ export default function FeaturedProjects({ projects }) {
                 </Link>
               </NextLink>
             </Stack>
-          </SlideUpWhenVisible>
+          </SectionReveal>
           {projects && projects.length > 0 && projects[0] && projects[0].fields ? (
-            <SlideUpWhenVisible>
+            <SectionReveal direction="up">
               <Cards
                 slug={projects[0].fields.slug}
                 desc={projects[0].fields.description}
@@ -80,9 +80,9 @@ export default function FeaturedProjects({ projects }) {
                 tag={projects[0].fields.tags}
                 title={projects[0].fields.title}
               />
-            </SlideUpWhenVisible>
+            </SectionReveal>
           ) : (
-            <SlideUpWhenVisible>
+            <SectionReveal direction="up">
               <Cards
                 slug="synapse"
                 desc="Developed a real-time NLP chatbot (MERN, OpenAI API) with JWT authentication, achieving 100% message accuracy through model optimization."
@@ -90,10 +90,10 @@ export default function FeaturedProjects({ projects }) {
                 tag={['MERN Stack', 'OpenAI API', 'JWT', 'AI']}
                 title="Synapse - AI Chatbot"
               />
-            </SlideUpWhenVisible>
+            </SectionReveal>
           )}
           {projects && projects.length > 1 && projects[1] && projects[1].fields ? (
-            <SlideUpWhenVisible>
+            <SectionReveal direction="up">
               <Box mt={{ md: '-50%' }}>
                 <Cards
                   slug={projects[1].fields.slug}
@@ -103,9 +103,9 @@ export default function FeaturedProjects({ projects }) {
                   title={projects[1].fields.title}
                 />
               </Box>
-            </SlideUpWhenVisible>
+            </SectionReveal>
           ) : (
-            <SlideUpWhenVisible>
+            <SectionReveal direction="up">
               <Box mt={{ md: '-50%' }}>
                 <Cards
                   slug="sonify"
@@ -115,10 +115,10 @@ export default function FeaturedProjects({ projects }) {
                   title="Sonify - Music Streaming App"
                 />
               </Box>
-            </SlideUpWhenVisible>
+            </SectionReveal>
           )}
           {projects && projects.length > 2 && projects[2] && projects[2].fields ? (
-            <SlideUpWhenVisible threshold={0.8}>
+            <SectionReveal direction="up">
               <Cards
                 slug={projects[2].fields.slug}
                 desc={projects[2].fields.description}
@@ -126,9 +126,9 @@ export default function FeaturedProjects({ projects }) {
                 tag={projects[2].fields.tags}
                 title={projects[2].fields.title}
               />
-            </SlideUpWhenVisible>
+            </SectionReveal>
           ) : (
-            <SlideUpWhenVisible threshold={0.8}>
+            <SectionReveal direction="up">
               <Cards
                 slug="healthcare-portal"
                 desc="Developed a responsive healthcare portal with React.js and Node.js, boosting user engagement by 40% and reducing load time by 25%. Implemented secure patient data management and appointment scheduling."
@@ -136,7 +136,7 @@ export default function FeaturedProjects({ projects }) {
                 tag={['React.js', 'Node.js', 'Healthcare', 'REST API']}
                 title="Healthcare Portal"
               />
-            </SlideUpWhenVisible>
+            </SectionReveal>
           )}
         </SimpleGrid>
       </Stack>

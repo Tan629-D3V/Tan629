@@ -19,7 +19,8 @@ import {
 import NextLink from 'next/link'
 import styled from '@emotion/styled'
 import useMediaQuery from '../hook/useMediaQuery'
-import { AiOutlineMenu } from 'react-icons/ai'
+import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai'
+import { motion } from 'framer-motion'
 import NavbarDrawer from './NavbarDrawer'
 import Link from 'next/link'
 
@@ -45,8 +46,18 @@ export default function Navbar({ enableTransition }) {
     font-weight: 600;
   `
 
+  const AnimatedMenuIcon = ({ isOpen }) => (
+    <motion.div
+      animate={{ rotate: isOpen ? 90 : 0 }}
+      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+      style={{ display: 'inline-block' }}
+    >
+      {isOpen ? <AiOutlineClose size={32} /> : <AiOutlineMenu size={32} />}
+    </motion.div>
+  )
+
   return (
-    <Box pos="sticky" top={0} zIndex={200}>
+    <Box pos="sticky" top={0} zIndex={200} bg="charcoal" boxShadow="sm">
       <Flex
         as="nav"
         align="center"
@@ -55,15 +66,15 @@ export default function Navbar({ enableTransition }) {
         w="100%"
         px={{ base: 10, md: 36 }}
         py={{ base: 2, md: 6 }}
-        bg="rgba(0, 0, 0, 0)"
+        bg="charcoal"
+        color="white"
+        boxShadow="sm"
         backdropFilter="blur(10px)"
-        // borderBottom="1px solid rgba(0, 0, 0, 0))"
-        // boxShadow="0 0 25px rgba(0, 0, 0, 0)"
         style={{ position: 'sticky', top: 0, zIndex: 200 }}
       >
         <Box
-          as={Link}
-          href="https://tan629.vercel.app/"
+          as="button"
+          onClick={() => window.location.href = '/'}
           display="flex"
           alignItems="center"
           className="navbar-logo-wrapper"
@@ -73,9 +84,10 @@ export default function Navbar({ enableTransition }) {
           h={{ base: 12, md: 20 }}
           style={{ justifyContent: 'center', margin: '0 1rem', animation: 'fadeInLogo 1.2s ease' }}
           borderRadius="full"
+          aria-label="Homepage"
         >
           <Image
-            src="/Tan629logo.png"
+            src="/cropped_circle_image.png"
             alt="Tan629 Logo"
             w="100%"
             h="100%"
@@ -84,21 +96,53 @@ export default function Navbar({ enableTransition }) {
             style={{ display: 'block' }}
           />
         </Box>
-        {isLargerThan768 ? (
-          <Box mr={7} color="displayColor">
-            <NextLink passHref href="/">
-              <Button as="a" p="4" fontSize={{ base: 'sm', md: 'lg' }} variant="ghost" transition="all 0.2s ease-in-out" _hover={{ color: 'white', bg: 'rgba(60, 207, 145, 0.1)' }}>
-                Home
-              </Button>
-            </NextLink>
-            <NextLink passHref href="/projects">
-              <Button as="a" p="4" fontSize={{ base: 'sm', md: 'lg' }} variant="ghost" transition="all 0.2s ease-in-out" _hover={{ color: 'white', bg: 'rgba(60, 207, 145, 0.1)' }}>
-                Projects
-              </Button>
-            </NextLink>
+        <Box mr={7} color="displayColor" display={{ base: 'none', md: 'flex' }} alignItems="center" gap={2}>
+          <NextLink passHref href="/">
+            <Button as="a" p="4" fontSize={{ base: 'sm', md: 'lg' }} variant="ghost" transition="all 0.2s ease-in-out" _hover={{ color: 'white', bg: 'rgba(60, 207, 145, 0.1)' }}>
+              Home
+            </Button>
+          </NextLink>
+          <Button as="a" href="#about-me" p="4" fontSize={{ base: 'sm', md: 'lg' }} variant="ghost" transition="all 0.2s ease-in-out" _hover={{ color: 'white', bg: 'rgba(60, 207, 145, 0.1)' }} onClick={e => { e.preventDefault(); document.getElementById('about-me')?.scrollIntoView({ behavior: 'smooth' }); }}>
+            About
+          </Button>
+          <NextLink passHref href="/projects">
+            <Button as="a" p="4" fontSize={{ base: 'sm', md: 'lg' }} variant="ghost" transition="all 0.2s ease-in-out" _hover={{ color: 'white', bg: 'rgba(60, 207, 145, 0.1)' }}>
+              Projects
+            </Button>
+          </NextLink>
+          <Button
+            as="a"
+            href="#contact-me"
+            p="4"
+            fontSize={{ base: 'sm', md: 'lg' }}
+            variant="ghost"
+            transition="all 0.2s ease-in-out"
+            _hover={{ color: 'white', bg: 'rgba(60, 207, 145, 0.1)' }}
+            onClick={e => {
+              e.preventDefault();
+              const el = document.getElementById('contact-me');
+              if (el) {
+                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              } else {
+                // fallback: try scrolling to bottom
+                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+              }
+            }}
+            aria-label="Scroll to Contact section"
+          >
+            Contact
+          </Button>
+        </Box>
+        {isLargerThan768 ? null : (
+          <Box as="span" display="inline-block">
+            <button
+              aria-label={isOpen ? 'Close menu' : 'Open menu'}
+              onClick={isOpen ? onClose : onOpen}
+              style={{ background: 'none', border: 'none', padding: 0, margin: 0, cursor: 'pointer' }}
+            >
+              <AnimatedMenuIcon isOpen={isOpen} />
+            </button>
           </Box>
-        ) : (
-          <Icon as={AiOutlineMenu} w={{ base: 6, md: 7 }} h={{ base: 6, md: 7 }} onClick={onOpen} />
         )}
       </Flex>
       <NavbarDrawer isOpen={isOpen} onClose={onClose} />

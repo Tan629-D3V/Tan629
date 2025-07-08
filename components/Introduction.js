@@ -24,6 +24,7 @@ const MotionText = motion(Text)
 
 export default function Introduction({ introduction }) {
   const isLargerThan800 = useMediaQuery(800)
+  const isDesktop = useMediaQuery(1024);
   const handleClick = (event) => {
     ReactGA.event({
       category: 'click',
@@ -90,7 +91,7 @@ export default function Introduction({ introduction }) {
       <Heading
         bgGradient="linear(to-r, gray.600, gray.400)"
         bgClip="text"
-        fontSize={{ base: 'lg', md: 'display2' }}
+        fontSize={{ base: '2xl', md: 'display2' }}
         fontWeight="medium"
         letterSpacing="-1.6px"
         display="inline-block"
@@ -153,8 +154,16 @@ export default function Introduction({ introduction }) {
             );
           })()}
         </Box>{' '}
-         A self-taught developer with an<br />
-        interest in Computer Science.
+        {/* Responsive: single line on mobile/tablet, line break on desktop */}
+        {isDesktop ? (
+          <>
+            A self-taught developer with an<br />interest in Computer Science.
+          </>
+        ) : (
+          <>
+            A self-taught developer with an interest in Computer Science.
+          </>
+        )}
       </Heading>
 
       <Text 

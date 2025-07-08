@@ -26,7 +26,7 @@ const GlobalStyle = ({ children }) => {
           }
           body {
             background-color: #000;
-            background-image: linear-gradient(195deg,rgb(17, 29, 60), #020409 70%);
+            background-image: linear-gradient(195deg,rgb(17, 29, 60), #020409 60%);
             background-attachment: fixed;
             color: #fff;
             font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
@@ -73,9 +73,23 @@ const GlobalStyle = ({ children }) => {
   )
 }
 
+function isTouchDevice() {
+  if (typeof window === 'undefined') return false;
+  return (
+    'ontouchstart' in window ||
+    navigator.maxTouchPoints > 0 ||
+    navigator.msMaxTouchPoints > 0
+  );
+}
+
 function DotCursor() {
   useEffect(() => {
     if (typeof window === 'undefined') return;
+    if (isTouchDevice()) {
+      // Restore default cursor for touch devices
+      document.body.style.cursor = '';
+      return;
+    }
     // Create cursor element
     let cursor = document.getElementById('dot-cursor');
     if (!cursor) {
