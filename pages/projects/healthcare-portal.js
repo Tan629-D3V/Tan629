@@ -35,27 +35,43 @@ export default function HealthcarePortalProject({ source, frontmatter, toc }) {
   return (
     <Container maxW="4xl" >
       {/* Header Section */}
-      <Box as="header" my={{ base: 10, md: 16 }} mx={{ base: 4, md: 1 }} textAlign="center">
+      <Box as="header" mx={{ base: 4, md: 1 }} my={{ base: 10, md: 16 }} textAlign="center">
         <Heading
           as="h1"
-          size="2xl"
-          fontWeight="extrabold"
-          color={accent}
           mb={3}
-          letterSpacing="tight"
+          color={accent}
+          fontWeight="extrabold"
           lineHeight={1.1}
+          letterSpacing="tight"
+          size="2xl"
         >
           {frontmatter?.title || 'Healthcare Portal'}
         </Heading>
         {frontmatter?.summary && (
-          <Text color={textColor} fontSize={{ base: 'lg', md: 'xl' }} mb={6} maxW="2xl" mx="auto">
+          <Text
+            maxW="2xl"
+            mx="auto"
+            mb={6}
+            color={textColor}
+            fontSize={{ base: 'lg', md: 'xl' }}
+          >
             {frontmatter.summary}
           </Text>
         )}
         {frontmatter?.tags && (
-          <Stack direction="row" spacing={2} mt={3} justify={{ base: 'center', md: 'center' }}>
+          <Stack justify={{ base: 'center', md: 'center' }} direction="row" mt={3} spacing={2}>
             {frontmatter.tags.map((tag) => (
-              <Box key={tag} px={3} py={1} bg={accent} color="white" borderRadius="full" fontSize="sm" fontWeight="bold" shadow="md">
+              <Box
+                key={tag}
+                px={3}
+                py={1}
+                color="white"
+                fontSize="sm"
+                fontWeight="bold"
+                bg={accent}
+                borderRadius="full"
+                shadow="md"
+              >
                 {tag}
               </Box>
             ))}
@@ -64,23 +80,23 @@ export default function HealthcarePortalProject({ source, frontmatter, toc }) {
       </Box>
       <Box
         className="mdx-content"
-        px={{ base: 4, md: 200 }}
-        mx={{ base: 2, md: 24 }}
-        my={{ base: 20, md: 24 }}
         sx={{
           'h2, h3, h4': {
-            color: accent,
             fontWeight: 'bold',
             my: { base: 2, md: 5 },
             letterSpacing: 'wide',
             textAlign: 'left',
+            color: accent,
           },
-          p: { color: textColor, fontSize: { base: 'md', md: 'lg' }, mb: 2, textAlign: 'left', my: { base: 5, md: 25 }},
-          ul: { color: textColor, mb: 2, pl: 2, textAlign: 'left', my: { base: 5, md: 30 }, mx: { base: 5, md: 30 } },
-          ol: { color: textColor, mb: 5, pl: 6, textAlign: 'left' },
-          code: { color: accent, bg: 'gray.800', px: 2, borderRadius: 'md', fontSize: 'sm'  },
-          a: { color: "teal.300", _hover: { color: 'white' }, fontSize: { base: 'md', md: 'lg' } },
+          p: { fontSize: { base: 'md', md: 'lg' }, mb: 2, textAlign: 'left', my: { base: 5, md: 25 }, color: textColor },
+          ul: { mb: 2, pl: 2, textAlign: 'left', my: { base: 5, md: 30 }, mx: { base: 5, md: 30 }, color: textColor },
+          ol: { mb: 5, pl: 6, textAlign: 'left', color: textColor },
+          code: { px: 2, borderRadius: 'md', fontSize: 'sm', color: accent, bg: 'gray.800' },
+          a: { fontSize: { base: 'md', md: 'lg' }, color: 'teal.300', _hover: { color: 'white' } },
         }}
+        mx={{ base: 2, md: 24 }}
+        my={{ base: 20, md: 24 }}
+        px={{ base: 4, md: 200 }}
       >
         <MDXRemote {...source} components={MDXComponents} />
       </Box>

@@ -69,6 +69,8 @@ const DocsHeading = (props) => (
       <Heading
         as={props.as}
         fontSize={props.as === 'h2' ? '1.75em' : '1.25em'}
+        bgGradient="linear(to-r, gray.600, gray.400)"
+        bgClip="text"
         pointerEvents="auto"
         css={{
           scrollMarginTop: '80px',
@@ -76,8 +78,6 @@ const DocsHeading = (props) => (
           cursor: 'pointer',
         }}
         id={props.id}
-        bgGradient="linear(to-r, gray.600, gray.400)"
-        bgClip="text"
       >
         {props.children}
         <Box
@@ -108,10 +108,10 @@ const Hr = () => {
 // Tech Stack Component
 const TechStack = ({ technologies }) => (
   <Box my={4}>
-    <Text fontWeight="bold" mb={2} color="displayColor">
+    <Text mb={2} color="displayColor" fontWeight="bold">
       Technologies Used:
     </Text>
-    <HStack spacing={2} flexWrap="wrap">
+    <HStack flexWrap="wrap" spacing={2}>
       {technologies.map((tech, index) => (
         <Badge key={index} colorScheme="blue" variant="outline">
           {tech}
@@ -124,7 +124,7 @@ const TechStack = ({ technologies }) => (
 // Feature List Component
 const FeatureList = ({ features, title = "Key Features" }) => (
   <Box my={4}>
-    <Text fontWeight="bold" mb={2} color="displayColor">
+    <Text mb={2} color="displayColor" fontWeight="bold">
       {title}:
     </Text>
     <List spacing={2}>
@@ -141,20 +141,20 @@ const FeatureList = ({ features, title = "Key Features" }) => (
 // Project Links Component
 const ProjectLinks = ({ githubUrl, liveUrl, demoUrl }) => (
   <Box my={4}>
-    <Text fontWeight="bold" mb={2} color="displayColor">
+    <Text mb={2} color="displayColor" fontWeight="bold">
       Project Links:
     </Text>
     <HStack spacing={3}>
       {githubUrl && (
         <Button
           as="a"
-          href={githubUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          leftIcon={<FaGithub />}
-          size="sm"
-          variant="outline"
           colorScheme="blue"
+          href={githubUrl}
+          leftIcon={<FaGithub />}
+          rel="noopener noreferrer"
+          size="sm"
+          target="_blank"
+          variant="outline"
         >
           GitHub
         </Button>
@@ -162,13 +162,13 @@ const ProjectLinks = ({ githubUrl, liveUrl, demoUrl }) => (
       {liveUrl && (
         <Button
           as="a"
-          href={liveUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          leftIcon={<FaExternalLinkAlt />}
-          size="sm"
-          variant="outline"
           colorScheme="green"
+          href={liveUrl}
+          leftIcon={<FaExternalLinkAlt />}
+          rel="noopener noreferrer"
+          size="sm"
+          target="_blank"
+          variant="outline"
         >
           Live Demo
         </Button>
@@ -176,13 +176,13 @@ const ProjectLinks = ({ githubUrl, liveUrl, demoUrl }) => (
       {demoUrl && (
         <Button
           as="a"
-          href={demoUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          leftIcon={<FaExternalLinkAlt />}
-          size="sm"
-          variant="outline"
           colorScheme="purple"
+          href={demoUrl}
+          leftIcon={<FaExternalLinkAlt />}
+          rel="noopener noreferrer"
+          size="sm"
+          target="_blank"
+          variant="outline"
         >
           Demo
         </Button>
@@ -202,7 +202,7 @@ const InfoAlert = ({ title, children, type = "info" }) => {
   const { icon, colorScheme } = alertProps[type]
   
   return (
-    <Alert status={type} variant="subtle" borderRadius="md" my={4}>
+    <Alert my={4} borderRadius="md" status={type} variant="subtle">
       <AlertIcon as={icon} />
       <Box>
         {title && <AlertTitle>{title}</AlertTitle>}
@@ -216,19 +216,19 @@ const InfoAlert = ({ title, children, type = "info" }) => {
 const CodeBlock = ({ children, language, title }) => (
   <Box my={4}>
     {title && (
-      <Text fontSize="sm" color="textSecondary" mb={2}>
+      <Text mb={2} color="textSecondary" fontSize="sm">
         {title}
       </Text>
     )}
     <Code
       display="block"
-      whiteSpace="pre"
       overflow="auto"
       p={4}
-      borderRadius="md"
+      color="white"
       fontSize="sm"
       bg="gray.800"
-      color="white"
+      borderRadius="md"
+      whiteSpace="pre"
     >
       {children}
     </Code>
@@ -237,7 +237,7 @@ const CodeBlock = ({ children, language, title }) => (
 
 // Image Gallery Component
 const ImageGallery = ({ images, columns = 2 }) => (
-  <Grid templateColumns={`repeat(${columns}, 1fr)`} gap={4} my={4}>
+  <Grid gap={4} templateColumns={`repeat(${columns}, 1fr)`} my={4}>
     {images.map((image, index) => (
       <GridItem key={index}>
         <Image
@@ -256,7 +256,7 @@ const ImageGallery = ({ images, columns = 2 }) => (
 
 const MDXComponents = {
   h1: (props) => (
-    <Heading as="h1" my={4} size="xl" bgGradient="linear(to-r, gray.600, gray.400)" bgClip="text" {...props} />
+    <Heading as="h1" my={4} bgGradient="linear(to-r, gray.600, gray.400)" bgClip="text" size="xl" {...props} />
   ),
   h2: (props) => (
     <DocsHeading
@@ -315,7 +315,7 @@ const MDXComponents = {
   ),
   img: (props) => (
     <Center>
-      <Box w={{ base: '100%', md: '80%' }} h="auto" maxW="100vw">
+      <Box w={{ base: '100%', md: '80%' }} maxW="100vw" h="auto">
         <Image
           src={props.src}
           w="100%"

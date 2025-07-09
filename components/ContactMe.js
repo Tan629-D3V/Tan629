@@ -22,28 +22,28 @@ export default function ContactMe({ contactMe }) {
   }
   return (
     <Stack
-      w="100%"
       alignItems="center"
       justifyContent="center"
-      spacing={10}
+      w="100%"
       mt={{ base: '0', md: '5rem' }}
       mb={{ base: '0', md: '2rem' }}
+      spacing={10}
     >
       <ScaleFade
-        initialScale={0.9}
-        in={true}
         transition={{ enter: { duration: 0.7, delay: 0.2 } }}
+        in={true}
+        initialScale={0.9}
       >
         <Heading
           fontSize={{ base: '8xl', md: '7xl' }}
-           bgGradient="linear(to-r, gray.600, gray.400)"
-            bgClip="text"
-          textAlign="center"
-          transition="all 0.3s ease"
+           textAlign="center"
+            bgGradient="linear(to-r, gray.600, gray.400)"
+          bgClip="text"
           _hover={{
             transform: 'scale(1.1)',
             textShadow: '0 0 20px rgba(60, 207, 145, 0.3)',
           }}
+          transition="all 0.3s ease"
         >
           Keep In Touch.
         </Heading>
@@ -51,18 +51,18 @@ export default function ContactMe({ contactMe }) {
 
       <SlideFade
         direction="bottom"
-        in={true}
         transition={{ enter: { duration: 0.7, delay: 0.4 } }}
+        in={true}
       >
         <Text
           color="textSecondary"
           fontSize="xl"
           textAlign="center"
-          transition="all 0.3s ease"
           _hover={{
             transform: 'translateY(-1px)',
             color: 'white',
           }}
+          transition="all 0.3s ease"
         >
           {contactMe && contactMe.length > 0 && contactMe[0].fields ? (
             <>
@@ -97,9 +97,9 @@ export default function ContactMe({ contactMe }) {
       </SlideFade>
 
       <ScaleFade
-        initialScale={0.8}
-        in={true}
         transition={{ enter: { duration: 1.0, delay: 0.6 } }}
+        in={true}
+        initialScale={0.8}
       >
         {/* <Stack align="center" mb={6}>
           <a href="mailto:tanmaychouhan826629@gmail.com?subject=Let%27s%20Talk" style={{ textDecoration: 'none' }}>
@@ -126,25 +126,26 @@ export default function ContactMe({ contactMe }) {
           </a>
         </Stack> */}
         <Stack
+          _hover={{ transform: 'scale(1.1)' }}
+          transition="all 0.4s ease"
           isInline
           spacing={4}
-          transition="all 0.4s ease"
-          _hover={{ transform: 'scale(1.1)' }}
         >
           <Link href="https://github.com/Tan629-D3V" isExternal>
             <Button
-              color="white"
               pos="static"
-              leftIcon={<FaGithub color="#3CCF91" />}
-              onClick={() => handleClick('introduction_github')}
-              size={isLargerThan800 ? 'md' : 'sm'}
-              transition="all 0.3s ease"
+              color="white"
               _hover={{
                 transform: 'translateY(-3px) scale(1.05)',
+                shadow: 'lg',
                 boxShadow: '0 10px 25px rgba(60, 207, 145, 0.3)',
                 bg: 'rgba(60, 207, 145, 0.1)',
               }}
               _active={{ transform: 'translateY(-1px) scale(1.02)' }}
+              transition="all 0.3s ease"
+              leftIcon={<FaGithub color="#3CCF91" />}
+              onClick={() => handleClick('introduction_github')}
+              size={isLargerThan800 ? 'md' : 'sm'}
             >
               Github
             </Button>
@@ -153,16 +154,16 @@ export default function ContactMe({ contactMe }) {
             <Button
               pos="static"
               color="white"
-              leftIcon={<FaLinkedin color="#3CCF91" />}
-              onClick={() => handleClick('introduction_linkedin')}
-              size={isLargerThan800 ? 'md' : 'sm'}
-              transition="all 0.3s ease"
               _hover={{
                 transform: 'translateY(-3px) scale(1.05)',
                 boxShadow: '0 10px 25px rgba(60, 207, 145, 0.3)',
                 bg: 'rgba(60, 207, 145, 0.1)',
               }}
               _active={{ transform: 'translateY(-1px) scale(1.02)' }}
+              transition="all 0.3s ease"
+              leftIcon={<FaLinkedin color="#3CCF91" />}
+              onClick={() => handleClick('introduction_linkedin')}
+              size={isLargerThan800 ? 'md' : 'sm'}
             >
               LinkedIn
             </Button>
@@ -171,16 +172,16 @@ export default function ContactMe({ contactMe }) {
             <Button
               pos="static"
               color="white"
-              transition="all 0.3s ease"
-              leftIcon={<FaEnvelope fill="#3CCF91" />}
-              onClick={() => handleClick('introduction_email')}
-              size={isLargerThan800 ? 'md' : 'sm'}
               _hover={{
                 transform: 'translateY(-3px) scale(1.05)',
                 boxShadow: '0 10px 25px rgba(60, 207, 145, 0.3)',
                 bg: 'rgba(60, 207, 145, 0.1)',
               }}
               _active={{ transform: 'translateY(-1px) scale(1.02)' }}
+              transition="all 0.3s ease"
+              leftIcon={<FaEnvelope fill="#3CCF91" />}
+              onClick={() => handleClick('introduction_email')}
+              size={isLargerThan800 ? 'md' : 'sm'}
             >
               Email
             </Button>
@@ -190,16 +191,16 @@ export default function ContactMe({ contactMe }) {
             <Button
               pos="static"
               color="white"
-              transition="all 0.3s ease"
-              leftIcon={<FaFileAlt fill="#3CCF91" />}
-              onClick={() => handleClick('introduction_resume')}
-              size={isLargerThan800 ? 'md' : 'sm'}
               _hover={{
                 transform: 'translateY(-3px) scale(1.05)',
                 boxShadow: '0 10px 25px rgba(60, 207, 145, 0.3)',
                 bg: 'rgba(60, 207, 145, 0.1)',
               }}
               _active={{ transform: 'translateY(-1px) scale(1.02)' }}
+              transition="all 0.3s ease"
+              leftIcon={<FaFileAlt fill="#3CCF91" />}
+              onClick={() => handleClick('introduction_resume')}
+              size={isLargerThan800 ? 'md' : 'sm'}
             >
               Resume
             </Button>

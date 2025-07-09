@@ -58,16 +58,16 @@ export default function Introduction({ introduction }) {
 
   return (
     <Stack
-      w="100%"
-      minH="80vh"
       alignItems={{ base: 'center', md: 'flex-start' }}
       justifyContent={{ base: 'center', md: 'flex-start' }}
-      spacing={{ base: 6, md: 4 }}
+      w="100%"
+      minH="80vh"
       textAlign={{ base: 'center', md: 'left' }}
+      spacing={{ base: 6, md: 4 }}
     >
       <Box
-        display="inline-block"
         pos="relative"
+        d="inline-block"
         _hover={{
           transform: 'scale(1.08)',
           textShadow: '0 0 20px rgba(60, 207, 145, 0.3)'
@@ -77,15 +77,15 @@ export default function Introduction({ introduction }) {
         <Text
           pos="relative"
           zIndex={1}
+          display="inline-block"
           color="button1"
           fontSize={{ base: '3xl', md: 'display2' }}
           fontWeight="medium"
-          transition="all 0.3s ease"
-          display="inline-block"
           _hover={{
             transform: 'scale(1.08)',
             textShadow: '0 0 20px rgba(60, 207, 145, 0.3)'
           }}
+          transition="all 0.3s ease"
         >
           Hey there!, I'm-
         </Text>
@@ -94,36 +94,35 @@ export default function Introduction({ introduction }) {
       <Heading
         pos="relative"
         zIndex={1}
+        d="inline-block"
         mt={-6}
         pb={4}
-        bgGradient="linear(to-r, gray.600, gray.400)"
-        bgClip="text"
         fontSize={{ base: '4.5rem', md: 'display' }}
         lineHeight={'95%'}
         letterSpacing={{ sm: '-1.5px', md: '-1.8px' }}
-        display="inline-block"
-        transition="all 0.3s ease"
+        bgGradient="linear(to-r, gray.600, gray.400)"
+        bgClip="text"
         _hover={{
           transform: 'scale(1.04)',
           textShadow: '0 0 20px rgba(60, 207, 145, 0.3)',
         }}
-
+        transition="all 0.3s ease"
       >
         Tanmay Chouhan.
       </Heading>
 
       <Heading
-        bgGradient="linear(to-r, gray.600, gray.400)"
-        bgClip="text"
+        display="inline-block"
         fontSize={{ base: '2xl', md: 'display2' }}
         fontWeight="medium"
         letterSpacing="-1.6px"
-        display="inline-block"
-        transition="all 0.3s ease"
+        bgGradient="linear(to-r, gray.600, gray.400)"
+        bgClip="text"
         _hover={{
           transform: 'scale(1.05)',
           textShadow: '0 0 16px rgba(60, 207, 145, 0.2)'
         }}
+        transition="all 0.3s ease"
       >
         <Box as="span" color="displayColor">
           {displayed}
@@ -160,36 +159,36 @@ export default function Introduction({ introduction }) {
       </Heading>
 
       <Text 
-        color="textSecondary" 
+        display="inline-block" 
+        color="textSecondary"
         fontSize={{ base: 'md', md: 'display3' }}
-        display="inline-block"
-        transition="all 0.3s ease"
         _hover={{
           transform: 'scale(1.04)',
           color: 'white',
           textShadow: '0 0 12px rgba(60, 207, 145, 0.15)'
         }}
+        transition="all 0.3s ease"
       >
         {introduction && introduction[0] && introduction[0].fields ? (
           <>
             {introduction[0].fields.emoji} {introduction[0].fields.description}
             <br />
-            <Stack isInline spacing={1} display="inline-block">
+            <Stack display="inline-block" isInline spacing={1}>
               <Box>{introduction[1] && introduction[1].fields ? introduction[1].fields.emoji : '💼'}</Box>
               <Box>
                 {introduction[1] && introduction[1].fields ? introduction[1].fields.description : 'Currently working at'}{' '}
                 {introduction[1] && introduction[1].fields && introduction[1].fields.companyUrl ? (
                   <Link
-                    href={introduction[1].fields.companyUrl}
-                    isExternal
-                    onClick={() => handleClick('Introduction_companyUrl')}
-                    rel="noreferrer"
-                    transition="all 0.3s ease"
                     _hover={{ 
                       color: 'button1',
                       textDecoration: 'underline',
                       transform: 'translateY(-1px)'
                     }}
+                    transition="all 0.3s ease"
+                    href={introduction[1].fields.companyUrl}
+                    isExternal
+                    onClick={() => handleClick('Introduction_companyUrl')}
+                    rel="noreferrer"
                   >
                     {introduction[1].fields.company}
                   </Link>
@@ -207,7 +206,7 @@ export default function Introduction({ introduction }) {
             <br />
             <Text display="inline-block">
               <span role="img" aria-label="briefcase">💼</span> Full Stack Developer Intern at{' '}
-              <Box as="span" color="button1" display="inline">
+              <Box as="span" display="inline" color="button1">
                 Suvidha Foundation
               </Box>
             </Text>
@@ -216,30 +215,30 @@ export default function Introduction({ introduction }) {
       </Text>
 
       <ScaleFade
-        initialScale={0.8}
-        in={true}
         transition={{ enter: { duration: 1.0, delay: 0.6 } }}
+        in={true}
+        initialScale={0.8}
       >
         <Stack
+          _hover={{ transform: 'scale(1.1)' }}
+          transition="all 0.4s ease"
           isInline
           spacing={4}
-          transition="all 0.4s ease"
-          _hover={{ transform: 'scale(1.1)' }}
         >
           <Link href="https://github.com/Tan629-D3V" isExternal>
             <Button
               pos="static"
               color="white"
-              leftIcon={<FaGithub color="#3CCF91" />}
-              onClick={() => handleClick('introduction_github')}
-              size={isLargerThan800 ? 'md' : 'sm'}
-              transition="all 0.3s ease"
               _hover={{
                 transform: 'translateY(-3px) scale(1.05)',
                 boxShadow: '0 10px 25px rgba(60, 207, 145, 0.3)',
                 bg: 'rgba(60, 207, 145, 0.1)',
               }}
               _active={{ transform: 'translateY(-1px) scale(1.02)' }}
+              transition="all 0.3s ease"
+              leftIcon={<FaGithub color="#3CCF91" />}
+              onClick={() => handleClick('introduction_github')}
+              size={isLargerThan800 ? 'md' : 'sm'}
             >
               Github
             </Button>
@@ -248,16 +247,16 @@ export default function Introduction({ introduction }) {
             <Button
               pos="static"
               color="white"
-              leftIcon={<FaLinkedin color="#3CCF91" />}
-              onClick={() => handleClick('introduction_linkedin')}
-              size={isLargerThan800 ? 'md' : 'sm'}
-              transition="all 0.3s ease"
               _hover={{
                 transform: 'translateY(-3px) scale(1.05)',
                 boxShadow: '0 10px 25px rgba(60, 207, 145, 0.3)',
                 bg: 'rgba(60, 207, 145, 0.1)',
               }}
               _active={{ transform: 'translateY(-1px) scale(1.02)' }}
+              transition="all 0.3s ease"
+              leftIcon={<FaLinkedin color="#3CCF91" />}
+              onClick={() => handleClick('introduction_linkedin')}
+              size={isLargerThan800 ? 'md' : 'sm'}
             >
               LinkedIn
             </Button>
@@ -266,16 +265,16 @@ export default function Introduction({ introduction }) {
             <Button
               pos="static"
               color="white"
-              transition="all 0.3s ease"
-              leftIcon={<FaEnvelope fill="#3CCF91" />}
-              onClick={() => handleClick('introduction_email')}
-              size={isLargerThan800 ? 'md' : 'sm'}
               _hover={{
                 transform: 'translateY(-3px) scale(1.05)',
                 boxShadow: '0 10px 25px rgba(60, 207, 145, 0.3)',
                 bg: 'rgba(60, 207, 145, 0.1)',
               }}
               _active={{ transform: 'translateY(-1px) scale(1.02)' }}
+              transition="all 0.3s ease"
+              leftIcon={<FaEnvelope fill="#3CCF91" />}
+              onClick={() => handleClick('introduction_email')}
+              size={isLargerThan800 ? 'md' : 'sm'}
             >
               Email
             </Button>

@@ -75,7 +75,7 @@ export default function Navbar({ enableTransition }) {
         <Box
           as="button"
           onClick={() => window.location.href = '/'}
-          display="flex"
+          d="flex"
           alignItems="center"
           className="navbar-logo-wrapper"
           _hover={{ opacity: 0.9, transform: 'scale(1.2)' }}

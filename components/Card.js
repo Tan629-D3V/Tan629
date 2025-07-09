@@ -94,24 +94,24 @@ export default function Cards({ imageURL, title, slug, desc, tag }) {
 
   return (
     <Box
-      role="group"
       sx={{ '&:hover': { cursor: customCursor } }}
+      role="group"
     >
       <Stack
-        bg="secondary"
         minH="320px"
         maxH="500px"
+        bg="secondary"
         border="1px"
         borderColor={{ base: '#333', md: 'borderColor' }}
         borderRadius="10px"
-        transition="transform 0.25s cubic-bezier(.4,2,.6,1), box-shadow .2s, border-color .2s"
         _hover={{
-          shadow: "lg",
-          boxShadow: "0 0 25px rgba(60, 207, 145, 0.5)",
+          shadow: 'lg',
+          boxShadow: '0 0 25px rgba(60, 207, 145, 0.5)',
           transform: 'scale(1.02)',
         }}
+        transition="transform 0.25s cubic-bezier(.4,2,.6,1), box-shadow .2s, border-color .2s"
       >
-        <Link href={`/projects/${slug}`} _hover={{ textDecoration: 'none' }}>
+        <Link _hover={{ textDecoration: 'none' }} href={`/projects/${slug}`}>
           <ScaleFade transition={{ duration: 1 }} in={true}>
             <Center w="auto">
               <Image
@@ -122,14 +122,7 @@ export default function Cards({ imageURL, title, slug, desc, tag }) {
                 borderRadius="10px 10px 0px 0px"
                 transition="0.3s"
                 objectFit="cover"
-                style={{
-                  borderRadius: '10px 10px 0px 0px',
-                  objectFit: 'cover',
-                  width: '100%',
-                  height: 'auto',
-                  maxWidth: 800,
-                  minHeight: '180px',
-                }}
+                style={{ borderRadius: '10px 10px 0px 0px', objectFit: 'cover', width: '100%', height: 'auto', maxWidth: 800, minHeight: '180px' }}
                 alt={title}
                 src={imageURL}
               />
@@ -140,11 +133,11 @@ export default function Cards({ imageURL, title, slug, desc, tag }) {
                   color="displayColor"
                   fontFamily="Ubuntu"
                   fontSize="2xl"
-                  transition="color 0.25s, transform 0.25s cubic-bezier(.4,2,.6,1)"
                   _groupHover={{
                     color: 'button1',
                     transform: 'scale(1.05)',
                   }}
+                  transition="color 0.25s, transform 0.25s cubic-bezier(.4,2,.6,1)"
                 >
                   {title}
                 </Text>
@@ -155,33 +148,33 @@ export default function Cards({ imageURL, title, slug, desc, tag }) {
                   spacing={4}
                 >
                   <Link
+                    alignItems="center"
+                    display="flex"
                     color="white"
+                    _hover={{ color: 'button1' }}
+                    transition="color 0.25s"
                     href={`/projects/${slug}`}
                     onClick={() =>
                       handleClick(`project_${title.replace('@', '-at')}`)
                     }
-                    transition="color 0.25s"
-                    _hover={{ color: 'button1' }}
-                    display="flex"
-                    alignItems="center"
                   >
                     <FaExternalLinkAlt aria-label="project link" size={20} />
                   </Link>
                 </Stack>
               </Stack>
-              <Stack direction="row" spacing={2} mt={2} mb={2} align="center">
+              <Stack align="center" direction="row" mt={2} mb={2} spacing={2}>
                 {Tags}
               </Stack>
               <Divider />
               <Text
+                mx={2}
                 color="textSecondary"
                 fontSize={['sm', 'md']}
-                transition="color 0.25s, transform 0.25s cubic-bezier(.4,2,.6,1)"
                 _groupHover={{
                   color: 'white',
                   transform: 'scale(1.02)',
                 }}
-                mx={2}
+                transition="color 0.25s, transform 0.25s cubic-bezier(.4,2,.6,1)"
               >
                 {desc}
               </Text>

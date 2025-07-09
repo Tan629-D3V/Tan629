@@ -31,21 +31,21 @@ export default function ProjectCard({
 
   return (
     <Box
+      p={6}
+      bg={bgColor}
       border="1px"
       borderColor={borderColor}
       borderRadius="lg"
-      p={6}
-      bg={bgColor}
-      transition="all 0.3s ease"
       _hover={{
         transform: 'translateY(-2px)',
         shadow: 'lg',
         borderColor: 'button1'
       }}
+      transition="all 0.3s ease"
     >
       <Stack spacing={4}>
-        <HStack justify="space-between" align="flex-start">
-          <Heading size="md" bgGradient="linear(to-r, gray.600, gray.400)" bgClip="text">
+        <HStack align="flex-start" justify="space-between">
+          <Heading bgGradient="linear(to-r, gray.600, gray.400)" bgClip="text" size="md">
             {title}
           </Heading>
           <Badge colorScheme={statusColors[status]} variant="subtle">
@@ -56,15 +56,15 @@ export default function ProjectCard({
           {description}
         </Text>
         {technologies && (
-          <HStack spacing={2} flexWrap="wrap">
+          <HStack flexWrap="wrap" spacing={2}>
             {technologies.map((tech, index) => (
-              <Badge key={index} colorScheme="blue" variant="outline" fontSize="xs">
+              <Badge key={index} fontSize="xs" colorScheme="blue" variant="outline">
                 {tech}
               </Badge>
             ))}
           </HStack>
         )}
-        <HStack spacing={4} fontSize="sm" color="textSecondary">
+        <HStack color="textSecondary" fontSize="sm" spacing={4}>
           {date && (
             <HStack spacing={1}>
               <Icon as={FaCalendar} />

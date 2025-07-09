@@ -60,10 +60,10 @@ export default function AboutMe() {
 
   return (
     <>
-      <SimpleGrid id="about-me" columns={{ base: 1, md: 2 }} spacing={{ base: 4, md: 8 }}>
+      <SimpleGrid columns={{ base: 1, md: 2 }} id="about-me" spacing={{ base: 4, md: 8 }}>
         <SlideUpWhenVisible>
           <Stack spacing={{ base: 3, md: 4 }}>
-            <Heading fontFamily="Ubuntu" fontSize={{ base: 'xl', md: '2xl' }} transition="all 0.3s ease" _hover={{ transform: 'scale(1.07)' }}>
+            <Heading fontFamily="Ubuntu" fontSize={{ base: 'xl', md: '2xl' }} _hover={{ transform: 'scale(1.07)' }} transition="all 0.3s ease">
               ⚡ About Me
             </Heading>
             <Text color="textSecondary" fontSize={{ base: '14px', md: '16px' }} whiteSpace="pre-line">
@@ -121,8 +121,8 @@ export default function AboutMe() {
               pos="relative"
               maxW={{ base: '220px', sm: '260px', md: '300px', lg: '350px' }}
               maxH={{ base: '220px', sm: '260px', md: '300px', lg: '350px' }}
-              transition="all 0.3s ease"
               _hover={{ transform: 'scale(1.08)', textShadow: '0 0 20px rgba(60, 207, 145, 0.3)' }}
+              transition="all 0.3s ease"
             >
               <Image
                 pos="absolute"
@@ -137,8 +137,8 @@ export default function AboutMe() {
               <Image
                 w={{ base: '220px', sm: '260px', md: '300px', lg: '350px' }}
                 h={{ base: '220px', sm: '260px', md: '300px', lg: '350px' }}
-                objectFit="cover"
                 borderRadius="50%"
+                objectFit="cover"
                 alt="Abdul Rahman"
                 src="/ME.jpg"
               />

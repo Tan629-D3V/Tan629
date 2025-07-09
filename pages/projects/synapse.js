@@ -37,37 +37,54 @@ export default function SynapseProject({ source, frontmatter, toc }) {
   return (
     <Container maxW="4xl" >
       {/* Header Section */}
-      <Box as="header" my={{ base: 10, md: 16 }} mx={{ base: 4, md: 1 }} textAlign="center">
+      <Box as="header" mx={{ base: 4, md: 1 }} my={{ base: 10, md: 16 }} textAlign="center">
         <Heading
           as="h1"
-          size="3xl"
-          fontWeight="extrabold"
-          color={accent}
           mb={4}
-          letterSpacing="tight"
+          color={accent}
+          fontWeight="extrabold"
           lineHeight={1.1}
+          letterSpacing="tight"
+          size="3xl"
         >
           {frontmatter?.title || 'Synapse'}
         </Heading>
         {frontmatter?.summary && (
-          <Text color={textColor} fontSize={{ base: 'lg', md: 'xl' }} mb={6} maxW="2xl" mx="auto">
+          <Text
+            maxW="2xl"
+            mx="auto"
+            mb={6}
+            color={textColor}
+            fontSize={{ base: 'lg', md: 'xl' }}
+          >
             {frontmatter.summary}
           </Text>
         )}
         {/* Pill tags/buttons */}
-        <Stack direction="row" spacing={3} justify="center" mb={8} flexWrap="wrap">
+        <Stack justify="center" flexWrap="wrap" direction="row" mb={8} spacing={3}>
           {frontmatter?.tags?.map((tag) => (
-            <Box key={tag} px={4} py={1} bg={accent} color="white" borderRadius="full" fontSize="sm" fontWeight="bold" shadow="md" letterSpacing="wide">
+            <Box
+              key={tag}
+              px={4}
+              py={1}
+              color="white"
+              fontSize="sm"
+              fontWeight="bold"
+              letterSpacing="wide"
+              bg={accent}
+              borderRadius="full"
+              shadow="md"
+            >
               {tag}
             </Box>
           ))}
           {frontmatter?.duration && (
-            <Box px={4} py={1} bg={pillBg} color="white" borderRadius="full" fontSize="sm" fontWeight="bold" shadow="md">
+            <Box px={4} py={1} color="white" fontSize="sm" fontWeight="bold" bg={pillBg} borderRadius="full" shadow="md">
               {frontmatter.duration}
             </Box>
           )}
           {frontmatter?.projectUrl && (
-            <Link href={frontmatter.projectUrl} isExternal px={4} py={1} bg={pillAccent} color={accent} borderRadius="full" fontSize="sm" fontWeight="bold" shadow="md" _hover={{ bg: accent, color: 'white' }} transition="all 0.2s">
+            <Link px={4} py={1} color={accent} fontSize="sm" fontWeight="bold" bg={pillAccent} borderRadius="full" shadow="md" _hover={{ bg: accent, color: 'white' }} transition="all 0.2s" href={frontmatter.projectUrl} isExternal>
               Visit Project
             </Link>
           )}
@@ -75,9 +92,9 @@ export default function SynapseProject({ source, frontmatter, toc }) {
       </Box>
       {/* Image Gallery Section (if images exist) */}
       {frontmatter?.images && Array.isArray(frontmatter.images) && frontmatter.images.length > 0 && (
-        <Stack direction="row" spacing={4} justify="center" mb={12} flexWrap="wrap">
+        <Stack justify="center" flexWrap="wrap" direction="row" mb={12} spacing={4}>
           {frontmatter.images.map((img, idx) => (
-            <Box key={idx} borderRadius="xl" overflow="hidden" shadow="lg" maxW="sm" minW="180px">
+            <Box key={idx} overflow="hidden" minW="180px" maxW="sm" borderRadius="xl" shadow="lg">
               <img src={img} alt={`Project image ${idx + 1}`} style={{ width: '100%', height: 'auto', display: 'block' }} />
             </Box>
           ))}
@@ -86,23 +103,23 @@ export default function SynapseProject({ source, frontmatter, toc }) {
       {/* Main Content Section */}
       <Box
         className="mdx-content"
-        px={{ base: 4, md: 200 }}
-        mx={{ base: 2, md: 24 }}
-        my={{ base: 20, md: 24 }}
         sx={{
           'h2, h3, h4': {
-            color: accent,
             fontWeight: 'bold',
             my: { base: 2, md: 5 },
             letterSpacing: 'wide',
             textAlign: 'left',
+            color: accent,
           },
-          p: { color: textColor, fontSize: { base: 'md', md: 'lg' }, mb: 2, textAlign: 'left', my: { base: 5, md: 25 }},
-          ul: { color: textColor, mb: 2, pl: 2, textAlign: 'left', my: { base: 5, md: 30 }, mx: { base: 5, md: 30 } },
-          ol: { color: textColor, mb: 5, pl: 6, textAlign: 'left' },
-          code: { color: accent, bg: 'gray.800', px: 2, borderRadius: 'md', fontSize: 'sm'  },
-          a: { color: "teal.300", _hover: { color: 'white' }, fontSize: { base: 'md', md: 'lg' } },
+          p: { fontSize: { base: 'md', md: 'lg' }, mb: 2, textAlign: 'left', my: { base: 5, md: 25 }, color: textColor },
+          ul: { mb: 2, pl: 2, textAlign: 'left', my: { base: 5, md: 30 }, mx: { base: 5, md: 30 }, color: textColor },
+          ol: { mb: 5, pl: 6, textAlign: 'left', color: textColor },
+          code: { px: 2, borderRadius: 'md', fontSize: 'sm', color: accent, bg: 'gray.800' },
+          a: { fontSize: { base: 'md', md: 'lg' }, color: 'teal.300', _hover: { color: 'white' } },
         }}
+        mx={{ base: 2, md: 24 }}
+        my={{ base: 20, md: 24 }}
+        px={{ base: 4, md: 200 }}
       >
         <MDXRemote {...source} components={MDXComponents} />
       </Box>

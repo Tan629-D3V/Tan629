@@ -13,34 +13,34 @@ export default function Footer() {
   return (
     <Flex
       as="footer"
-      w="100%"
-      minH={{ base: '60px', md: '180px' }}
       align="center"
       justify="center"
-      bg="transparent"
       overflow="hidden"
-      p={0}
+      w="100%"
+      minH={{ base: '60px', md: '180px' }}
       m={0}
+      p={0}
+      bg="transparent"
     >
       <Text
+        maxW="100vw"
+        mx={0}
         mt={{ base: 0, md: '-8rem' }}
         mb={{ base: 0, md: '-12rem' }}
-        mx={0}
-        lineHeight="1"
+        fontFamily="sans-serif"
         fontSize={{ base: '5.5rem', sm: '6rem', md: '8rem', lg: '14rem', xl: '18rem' }}
         fontWeight="thin"
+        lineHeight="1"
         letterSpacing={{ base: '0.12em', md: '0.05em' }}
-        fontFamily="sans-serif"
+        textAlign="center"
         bgGradient="linear(to-r, gray.600, gray.400)"
         bgClip="text"
-        textAlign="center"
         textShadow="0 0 10px rgba(220, 220, 220, 0.2)"
-        transition="text-shadow 0.4s ease"
         _hover={{
           animation: `${pulseGlow} 3s ease-in-out infinite`,
         }}
-        maxW="100vw"
         overflowWrap="break-word"
+        transition="text-shadow 0.4s ease"
       >
         TANMAY
       </Text>

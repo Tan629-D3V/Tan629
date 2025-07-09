@@ -68,17 +68,17 @@ const NavbarDrawer = ({ isOpen, onClose }) => {
       <DrawerContent {...glassBg} p={0}>
         <DrawerCloseButton
           as={MotionIconButton}
-          icon={<AnimatedMenuIcon isOpen={true} />}
-          aria-label="Close menu"
-          size="lg"
           top={4}
           right={4}
-          bg="transparent"
           color="displayColor"
+          bg="transparent"
           _hover={{ color: 'button1', bg: 'rgba(60, 207, 145, 0.08)' }}
           transition="all 0.2s"
+          aria-label="Close menu"
+          icon={<AnimatedMenuIcon isOpen={true} />}
+          size="lg"
         />
-        <DrawerHeader borderBottomWidth="0" pt={12} pb={4} textAlign="center">
+        <DrawerHeader pt={12} pb={4} textAlign="center" borderBottomWidth="0">
           <Box w="60px" h="60px" mx="auto" mb={2}>
             <Image
               src="/cropped_circle_image.png"
@@ -89,17 +89,18 @@ const NavbarDrawer = ({ isOpen, onClose }) => {
               priority
             />
           </Box>
-          <Text fontWeight="bold" fontSize="2xl" color="displayColor">
+          <Text color="displayColor" fontSize="2xl" fontWeight="bold">
             Tanmay Chouhan
           </Text>
         </DrawerHeader>
         <DrawerBody px={0} pt={6}>
-          <Stack spacing={2} align="center" w="100%">
+          <Stack align="center" w="100%" spacing={2}>
             {navLinks.map((link) =>
               link.scroll ? (
                 <Button
                   key={link.label}
                   {...linkStyle}
+                  aria-label={`Scroll to ${link.label} section`}
                   onClick={e => {
                     e.preventDefault();
                     onClose();
@@ -112,13 +113,12 @@ const NavbarDrawer = ({ isOpen, onClose }) => {
                       }
                     }, 200);
                   }}
-                  aria-label={`Scroll to ${link.label} section`}
                 >
                   {link.label}
                 </Button>
               ) : (
                 <NextLink passHref href={link.href} key={link.label}>
-                  <Button {...linkStyle} onClick={onClose} as="a">
+                  <Button {...linkStyle} as="a" onClick={onClose}>
                     {link.label}
                   </Button>
                 </NextLink>

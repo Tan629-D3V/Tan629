@@ -37,44 +37,29 @@ export default function Skills() {
 
   return (
     <Flex 
-      w="100%" 
-      py={{ base: 20, md: 32 }} 
-      px={{ base: 4, md: 10 }}
-      pos="relative"
-      overflow="hidden"
-      minH={{ base: '600px', md: '800px' }}
-      align="center"
+      pos="relative" 
+      align="center" 
       justify="center"
+      overflow="hidden"
+      w="100%"
+      minH={{ base: '600px', md: '800px' }}
+      px={{ base: 4, md: 10 }}
+      py={{ base: 20, md: 32 }}
     >
       {/* 3D Tag Cloud as Background */}
       <Box
         pos="absolute"
+        zIndex={0}
         top="0"
         left="0"
         w="100%"
         h="100%"
-        zIndex={0}
       >
         <TagCloud3D skills={skills} />
       </Box>
       
       {/* Centered Glassmorphism Circle */}
-      <Box
-        pos="relative"
-        zIndex={2}
-        w={{ base: '220px', sm: '200px', md: '300px' }}
-        h={{ base: '220px', sm: '200px', md: '300px' }}
-        borderRadius="full"
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
-        textAlign="center"
-        p={{ base: 6, md: 10 }}
-        transition="all 0.4s cubic-bezier(0.4, 0, 0.2, 1)"
-        _hover={{
-          transform: 'scale(1.1)',
-          filter: 'brightness(1.1)',
-        }}
+      <Flex
         sx={{
           // Liquid glass effect with multiple layers
           background: `
@@ -150,16 +135,25 @@ export default function Skills() {
             animation: 'liquidFlow 4s ease-in-out infinite',
           }
         }}
+        pos="relative"
+        zIndex={2}
+        align="center"
+        justify="center"
+        w={{ base: '220px', sm: '200px', md: '300px' }}
+        h={{ base: '220px', sm: '200px', md: '300px' }}
+        p={{ base: 6, md: 10 }}
+        textAlign="center"
+        borderRadius="full"
+        _hover={{
+          transform: 'scale(1.1)',
+          filter: 'brightness(1.1)',
+        }}
+        transition="all 0.4s cubic-bezier(0.4, 0, 0.2, 1)"
       >
         <VStack spacing={4}>
           {/* Main Heading */}
           <Heading
             as="h2"
-            fontSize={{ base: '2xl', md: '4xl' }}
-            color={accent}
-            fontFamily="Ubuntu"
-            fontWeight="bold"
-            textShadow="0px 2px 15px rgba(0, 0, 0, 0.6)"
             sx={{
               background: 'linear-gradient(135deg, #3CCF91 0%, #ffffff 100%)',
               backgroundClip: 'text',
@@ -167,75 +161,80 @@ export default function Skills() {
               WebkitTextFillColor: 'transparent',
               filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))',
             }}
+            color={accent}
+            fontFamily="Ubuntu"
+            fontSize={{ base: '2xl', md: '4xl' }}
+            fontWeight="bold"
+            textShadow="0px 2px 15px rgba(0, 0, 0, 0.6)"
           >
             Skills <Text as="span" color="white" fontWeight="normal">&</Text> Tools
           </Heading>
           
           {/* Subheading */}
           <Text 
-            color="gray.300" 
-            fontSize={{ base: 'xs', md: 'sm' }} 
-            lineHeight="1.6"
-            maxW="90%"
-            mx="auto"
-            fontWeight="300"
-            textShadow="0px 1px 8px rgba(0, 0, 0, 0.8)"
             sx={{
               textShadow: '0 1px 3px rgba(0, 0, 0, 0.8)',
               filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5))',
-            }}
+            }} 
+            maxW="90%" 
+            mx="auto"
+            color="gray.300"
+            fontSize={{ base: 'xs', md: 'sm' }}
+            fontWeight="300"
+            lineHeight="1.6"
+            textShadow="0px 1px 8px rgba(0, 0, 0, 0.8)"
           >
             For a more <Link 
               color={accent} 
-              href="#projects" 
-              fontWeight="bold"
+              fontWeight="bold" 
               _hover={{ 
                 color: 'white', 
                 textDecoration: 'underline',
                 textShadow: '0 0 8px rgba(60, 207, 145, 0.6)',
               }}
+              href="#projects"
             >detailed</Link> overview, please feel free
             to check the tools that were used on a per-project basis.
           </Text>
         </VStack>
-      </Box>
+      </Flex>
 
       {/* Floating Micro-Effects */}
       <Box
-        position="absolute"
+        pos="absolute"
+        zIndex={1}
         top="20%"
         left="10%"
         w="4px"
         h="4px"
         bg={accent}
-        borderRadius="full"
         opacity={0.6}
+        borderRadius="full"
         animation="float1 6s ease-in-out infinite"
-        zIndex={1}
       />
       <Box
-        position="absolute"
+        pos="absolute"
+        zIndex={1}
         top="60%"
         right="15%"
         w="6px"
         h="6px"
         bg={accent}
-        borderRadius="full"
         opacity={0.4}
+        borderRadius="full"
         animation="float2 8s ease-in-out infinite"
-        zIndex={1}
       />
       <Box
-        position="absolute"
+        pos="absolute"
+        zIndex={1}
         bottom="30%"
         left="20%"
         w="3px"
         h="3px"
         bg="white"
-        borderRadius="full"
         opacity={0.5}
+        borderRadius="full"
         animation="float3 7s ease-in-out infinite"
-        zIndex={1}
       />
 
       <style jsx>{`

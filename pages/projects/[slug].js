@@ -75,10 +75,10 @@ export default function Project({ metadata, publishedDate, source, toc }) {
       <Container>
         <Center minH="50vh">
           <Stack align="center" spacing={4}>
-            <Spinner size="xl" color="button1" />
+            <Spinner color="button1" size="xl" />
             <Text>Project not found</Text>
             <NextLink href="/projects" passHref>
-              <Button as="a" leftIcon={<FaArrowLeft />} colorScheme="blue">
+              <Button as="a" colorScheme="blue" leftIcon={<FaArrowLeft />}>
                 Back to Projects
               </Button>
             </NextLink>
@@ -103,11 +103,11 @@ export default function Project({ metadata, publishedDate, source, toc }) {
             <NextLink href="/projects" passHref>
               <Button
                 as="a"
-                leftIcon={<FaArrowLeft />}
-                variant="ghost"
-                size="sm"
-                onClick={() => handleClick('project_back_to_projects')}
                 _hover={{ bg: 'rgba(60, 207, 145, 0.1)' }}
+                leftIcon={<FaArrowLeft />}
+                onClick={() => handleClick('project_back_to_projects')}
+                size="sm"
+                variant="ghost"
               >
                 Back to Projects
               </Button>
@@ -116,43 +116,46 @@ export default function Project({ metadata, publishedDate, source, toc }) {
 
           {/* Project Header */}
           <Stack
+            overflow="hidden"
             mx="auto"
             border="1px"
             borderColor={{ base: '#333', md: 'borderColor' }}
             borderRadius="10px"
-            overflow="hidden"
           >
             <Image
+              src={metadata.image}
+              alt={metadata.title}
               w="100%"
               h="auto"
               objectFit="cover"
               style={{ borderRadius: '10px' }}
-              alt={metadata.title}
               priority
-              src={metadata.image}
               blurDataURL={metadata.image}
             />
           </Stack>
 
           {/* Project Info */}
-          <Stack pt={4} spacing={4}>
+          <Stack
+            pt={4}
+            spacing={4}
+          >
             <Stack spacing={2}>
-            <Heading
-              as="h1"
-              bgGradient="linear(to-r, gray.600, gray.400)"
-              bgClip="text"
-              fontSize={['3xl', '3xl', '5xl', '5xl']}
+              <Heading
+                as="h1"
+                fontSize={['3xl', '3xl', '5xl', '5xl']}
                 lineHeight="1.1"
-            >
-              {metadata.title}
-            </Heading>
+                bgGradient="linear(to-r, gray.600, gray.400)"
+                bgClip="text"
+              >
+                {metadata.title}
+              </Heading>
               <Text color="textPrimary" fontSize={['sm', 'md']} lineHeight="1.6">
                 {metadata.summary}
               </Text>
             </Stack>
 
             {/* Project Meta */}
-            <HStack spacing={4} flexWrap="wrap">
+            <HStack flexWrap="wrap" spacing={4}>
               <HStack spacing={2}>
                 <Icon as={FaCalendar} color="textSecondary" />
                 <Text color="textPrimary" fontSize="sm">
@@ -163,32 +166,30 @@ export default function Project({ metadata, publishedDate, source, toc }) {
                   })}
                 </Text>
               </HStack>
-              
               <HStack spacing={2}>
                 <Icon as={FaUser} color="textSecondary" />
                 <Text color="textPrimary" fontSize="sm">
                   {metadata.category}
-            </Text>
+                </Text>
               </HStack>
-
-            <HStack spacing={2}>
+              <HStack spacing={2}>
                 <Text color="textPrimary" fontSize="sm">
-                {views} views
-              </Text>
+                  {views} views
+                </Text>
               </HStack>
             </HStack>
 
             {/* Project Tags */}
             {metadata.tags && (
-              <HStack spacing={2} flexWrap="wrap">
+              <HStack flexWrap="wrap" spacing={2}>
                 {metadata.tags.map((tag, index) => (
                   <Badge
                     key={index}
-                    colorScheme="blue"
-                    variant="outline"
-                    fontSize="xs"
                     px={2}
                     py={1}
+                    fontSize="xs"
+                    colorScheme="blue"
+                    variant="outline"
                   >
                     {tag}
                   </Badge>
@@ -197,41 +198,40 @@ export default function Project({ metadata, publishedDate, source, toc }) {
             )}
 
             {/* Project Links */}
-            <HStack spacing={4} flexWrap="wrap">
+            <HStack flexWrap="wrap" spacing={4}>
               {metadata.githubLink && (
-                    <Link
+                <Link
                   href={metadata.githubLink}
-                      isExternal
-                      onClick={() => handleClick(`${metadata.title}_github`)}
-                    >
+                  isExternal
+                  onClick={() => handleClick(`${metadata.title}_github`)}
+                >
                   <Button
+                    _hover={{ bg: 'rgba(60, 207, 145, 0.1)' }}
+                    colorScheme="blue"
                     leftIcon={<FaGithub />}
                     size="sm"
                     variant="outline"
-                    colorScheme="blue"
-                    _hover={{ bg: 'rgba(60, 207, 145, 0.1)' }}
                   >
                     GitHub
                   </Button>
-                    </Link>
+                </Link>
               )}
-
               {metadata.deployLink && (
-                    <Link
+                <Link
                   href={metadata.deployLink}
-                      isExternal
-                      onClick={() => handleClick(`${metadata.title}_livesite`)}
-                    >
+                  isExternal
+                  onClick={() => handleClick(`${metadata.title}_livesite`)}
+                >
                   <Button
+                    _hover={{ bg: 'rgba(60, 207, 145, 0.1)' }}
+                    colorScheme="green"
                     leftIcon={<FaLink />}
                     size="sm"
                     variant="outline"
-                    colorScheme="green"
-                    _hover={{ bg: 'rgba(60, 207, 145, 0.1)' }}
                   >
                     Live Demo
                   </Button>
-                    </Link>
+                </Link>
               )}
             </HStack>
           </Stack>
@@ -256,23 +256,18 @@ export default function Project({ metadata, publishedDate, source, toc }) {
             w="250px"
             h="500px"
           >
-              <Text color="displayColor" fontSize="xl" fontWeight="semibold" mb={4}>
+            <Text mb={4} color="displayColor" fontSize="xl" fontWeight="semibold">
               Table of Contents
             </Text>
-
             {toc.map((heading) => (
               <Box key={heading.title} pl={`${heading.level * 1}rem`}>
                 <Text
                   key={heading.id}
-                  color={
-                      heading.title === activeId ? 'button1' : 'textSecondary'
-                  }
+                  color={heading.title === activeId ? 'button1' : 'textSecondary'}
                   fontSize={['sm', 'sm', 'md', 'md']}
-                  fontWeight={
-                    heading.title === activeId ? 'semibold' : 'normal'
-                  }
-                    cursor="pointer"
-                    _hover={{ color: 'button1' }}
+                  fontWeight={heading.title === activeId ? 'semibold' : 'normal'}
+                  _hover={{ color: 'button1' }}
+                  cursor="pointer"
                 >
                   <a href={`#${heading.title}`}>{heading.title}</a>
                 </Text>

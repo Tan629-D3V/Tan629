@@ -15,7 +15,7 @@ export default function Projects({ projects }) {
             name="description"
           />
         </Head>
-        <Stack align="center" spacing={16} my={{ base: '10vh', md: '8vh' }}>
+        <Stack align="center" my={{ base: '10vh', md: '8vh' }} spacing={16}>
           <Heading
             fontSize={{ base: '4xl', md: '7xl' }}
             fontWeight="extrabold"
@@ -25,54 +25,54 @@ export default function Projects({ projects }) {
           >
             Projects
           </Heading>
-          <Text fontSize={{ base: 'md', md: 'xl' }} color="textSecondary" maxW="2xl" textAlign="center">
+          <Text maxW="2xl" color="textSecondary" fontSize={{ base: 'md', md: 'xl' }} textAlign="center">
             A showcase of my favorite projects, built with modern web technologies and a passion for great user experience.
           </Text>
-          <Stack spacing={16} w="100%" maxW="3xl">
+          <Stack w="100%" maxW="3xl" spacing={16}>
             {projects.map((project) => (
               <NextLink key={project.slug} href={`/projects/${project.slug}`} passHref>
                 <Box
                   as="a"
-                  borderRadius="2xl"
+                  display="block"
                   overflow="hidden"
-                  shadow="lg"
                   bg="secondary"
                   border="1px"
                   borderColor="borderColor"
-                  transition="box-shadow 0.2s, transform 0.2s"
+                  borderRadius="2xl"
+                  shadow="lg"
                   _hover={{ shadow: 'xl', transform: 'scale(1.01)', textDecoration: 'none' }}
-                  display="block"
+                  transition="box-shadow 0.2s, transform 0.2s"
                 >
                   <Image
-                    src={project.image}
-                    alt={project.title}
                     w="100%"
                     h="auto"
                     maxH="320px"
                     objectFit="cover"
+                    alt={project.title}
+                    src={project.image}
                   />
                   <Box p={{ base: 5, md: 8 }}>
-                    <HStack spacing={3} mb={2} flexWrap="wrap">
+                    <HStack flexWrap="wrap" mb={2} spacing={3}>
                       {project.tags && project.tags.map((tag) => (
-                        <Badge key={tag} colorScheme="blue" variant="outline" fontSize="xs" px={2} py={1} borderRadius="full">
+                        <Badge key={tag} px={2} py={1} fontSize="xs" borderRadius="full" colorScheme="blue" variant="outline">
                           {tag}
                         </Badge>
                       ))}
                     </HStack>
                     <Heading
                       as="h2"
+                      mb={1}
                       fontSize={{ base: '2xl', md: '3xl' }}
+                      fontWeight="bold"
                       bgGradient="linear(to-r, gray.600, gray.400)"
                       bgClip="text"
-                      fontWeight="bold"
-                      mb={1}
                     >
                       {project.title}
                     </Heading>
-                    <Text color="textSecondary" fontSize={{ base: 'md', md: 'lg' }} mb={3} noOfLines={3}>
+                    <Text mb={3} color="textSecondary" fontSize={{ base: 'md', md: 'lg' }} noOfLines={3}>
                       {project.summary}
                     </Text>
-                    <HStack spacing={6} color="gray.400" fontSize="sm" mb={2}>
+                    <HStack mb={2} color="gray.400" fontSize="sm" spacing={6}>
                       {project.date && (
                         <Text>{new Date(project.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</Text>
                       )}

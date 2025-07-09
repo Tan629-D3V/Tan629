@@ -242,11 +242,11 @@ const TagCloud3D = ({ skills }) => {
   return (
     <Box
       ref={containerRef}
-      w="100%"
-      h="100%"
       pos="absolute"
       top="0"
       left="0"
+      w="100%"
+      h="100%"
     >
       <canvas
         ref={canvasRef}
