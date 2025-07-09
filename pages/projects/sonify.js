@@ -35,7 +35,7 @@ export default function SonifyProject({ source, frontmatter, toc }) {
   return (
     <Container maxW="4xl" >
       {/* Header Section */}
-      <Box as="header" textAlign="center" my={{ base: 10, md: 16 }} mx={{ base: 4, md: 1 }}>
+      <Box as="header" my={{ base: 10, md: 16 }} mx={{ base: 4, md: 1 }} textAlign="center">
         <Heading
           as="h1"
           size="2xl"
@@ -48,14 +48,14 @@ export default function SonifyProject({ source, frontmatter, toc }) {
           {frontmatter?.title || 'Sonify'}
         </Heading>
         {frontmatter?.summary && (
-          <Text fontSize={{ base: 'lg', md: 'xl' }} color={textColor} mb={6} maxW="2xl" mx="auto">
+          <Text color={textColor} fontSize={{ base: 'lg', md: 'xl' }} mb={6} maxW="2xl" mx="auto">
             {frontmatter.summary}
           </Text>
         )}
         {frontmatter?.tags && (
           <Stack direction="row" spacing={2} mt={3} justify={{ base: 'center', md: 'center' }}>
             {frontmatter.tags.map((tag) => (
-              <Box key={tag} px={3} py={1} bg={accent} color="white" borderRadius="full" fontSize="sm" fontWeight="bold" boxShadow="md">
+              <Box key={tag} px={3} py={1} bg={accent} color="white" borderRadius="full" fontSize="sm" fontWeight="bold" shadow="md">
                 {tag}
               </Box>
             ))}
@@ -76,7 +76,7 @@ export default function SonifyProject({ source, frontmatter, toc }) {
             textAlign: 'left',
           },
           p: { color: textColor, fontSize: { base: 'md', md: 'lg' }, mb: 2, textAlign: 'left', my: { base: 5, md: 25 }},
-          ul: { color: textColor, mb: 2, pl: 2, textAlign: 'left',my: { base: 5, md: 30 },mx: { base: 5, md: 30 } },
+          ul: { color: textColor, mb: 2, pl: 2, textAlign: 'left', my: { base: 5, md: 30 }, mx: { base: 5, md: 30 } },
           ol: { color: textColor, mb: 5, pl: 6, textAlign: 'left' },
           code: { color: accent, bg: 'gray.800', px: 2, borderRadius: 'md', fontSize: 'sm'  },
           a: { color: "teal.300", _hover: { color: 'white' }, fontSize: { base: 'md', md: 'lg' } },

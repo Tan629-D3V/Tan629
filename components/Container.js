@@ -23,8 +23,8 @@ const Container = ({ enableTransition, children }) => {
       <Flex direction="column" minH="100vh">
         <Box
           w="100%"
-          transition="0.4s"
           flex="1"
+          transition="0.4s"
         >
           <Navbar enableTransition={enableTransition} />
           <Flex as="main" direction="column">

@@ -25,6 +25,30 @@ const MotionText = motion(Text)
 export default function Introduction({ introduction }) {
   const isLargerThan800 = useMediaQuery(800)
   const isDesktop = useMediaQuery(1024);
+  const [displayed, setDisplayed] = useState('');
+  const [titleIndex, setTitleIndex] = useState(0);
+  useEffect(() => {
+    const titles = [
+      'Full Stack Developer',
+      'Frontend Developer',
+      'Software Engineer',
+      'Backend Developer',
+    ];
+    const currentTitle = titles[titleIndex];
+    if (displayed.length < currentTitle.length) {
+      const timeout = setTimeout(() => {
+        setDisplayed(currentTitle.slice(0, displayed.length + 1));
+      }, 70);
+      return () => clearTimeout(timeout);
+    } else {
+      // Pause before next title
+      const pause = setTimeout(() => {
+        setDisplayed('');
+        setTitleIndex((titleIndex + 1) % titles.length);
+      }, 900);
+      return () => clearTimeout(pause);
+    }
+  }, [displayed, titleIndex]);
   const handleClick = (event) => {
     ReactGA.event({
       category: 'click',
@@ -34,10 +58,10 @@ export default function Introduction({ introduction }) {
 
   return (
     <Stack
-      alignItems={{ base: 'center', md: 'flex-start' }}
-      justifyContent={{ base: 'center', md: 'flex-start' }}
       w="100%"
       minH="80vh"
+      alignItems={{ base: 'center', md: 'flex-start' }}
+      justifyContent={{ base: 'center', md: 'flex-start' }}
       spacing={{ base: 6, md: 4 }}
       textAlign={{ base: 'center', md: 'left' }}
     >
@@ -70,8 +94,8 @@ export default function Introduction({ introduction }) {
       <Heading
         pos="relative"
         zIndex={1}
-        paddingBottom={4}
-        mt={-6}  
+        mt={-6}
+        pb={4}
         bgGradient="linear(to-r, gray.600, gray.400)"
         bgClip="text"
         fontSize={{ base: '4.5rem', md: 'display' }}
@@ -102,57 +126,26 @@ export default function Introduction({ introduction }) {
         }}
       >
         <Box as="span" color="displayColor">
-          {/* Typewriter effect for multiple titles, looping infinitely */}
-          {(() => {
-            const titles = [
-              'Full Stack Developer',
-              'Frontend Developer',
-              'Software Engineer',
-              'Backend Developer',
-            ];
-            const [displayed, setDisplayed] = useState('');
-            const [titleIndex, setTitleIndex] = useState(0);
-            useEffect(() => {
-              const currentTitle = titles[titleIndex];
-              if (displayed.length < currentTitle.length) {
-                const timeout = setTimeout(() => {
-                  setDisplayed(currentTitle.slice(0, displayed.length + 1));
-                }, 70);
-                return () => clearTimeout(timeout);
-              } else {
-                // Pause before next title
-                const pause = setTimeout(() => {
-                  setDisplayed('');
-                  setTitleIndex((titleIndex + 1) % titles.length);
-                }, 900);
-                return () => clearTimeout(pause);
-              }
-            }, [displayed, titleIndex]);
-            return (
-              <>
-                {displayed}
-                <span
-                  style={{
-                    marginLeft: '2px',
-                    width: '1ch',
-                    animation: 'blink 1s steps(1) infinite',
-                    fontWeight: 'inherit',
-                    fontSize: 'inherit',
-                    color: 'inherit',
-                    verticalAlign: 'baseline',
-                  }}
-                >
-                  |
-                </span>
-                <style>{`
-                  @keyframes blink {
-                    0%, 50% { opacity: 1; }
-                    51%, 100% { opacity: 0; }
-                  }
-                `}</style>
-              </>
-            );
-          })()}
+          {displayed}
+          <span
+            style={{
+              marginLeft: '2px',
+              width: '1ch',
+              animation: 'blink 1s steps(1) infinite',
+              fontWeight: 'inherit',
+              fontSize: 'inherit',
+              color: 'inherit',
+              verticalAlign: 'baseline',
+            }}
+          >
+            |
+          </span>
+          <style>{`
+            @keyframes blink {
+              0%, 50% { opacity: 1; }
+              51%, 100% { opacity: 0; }
+            }
+          `}</style>
         </Box>{' '}
         {/* Responsive: single line on mobile/tablet, line break on desktop */}
         {isDesktop ? (

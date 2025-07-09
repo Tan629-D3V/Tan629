@@ -28,17 +28,17 @@ export default function BackToTopButton() {
           <IconButton
             icon={<ChevronUpIcon boxSize={6} />}
             aria-label="Back to top"
-            color="button1"
             bg="transparent"
+            color="button1"
+            borderRadius="full"
+            shadow="lg"
+            transition="all 0.2s cubic-bezier(.4,0,.2,1)"
             _hover={{
               bg: 'button1',
               color: 'white',
               transform: 'scale(1.12)',
               boxShadow: '0 4px 16px 0rgb(60, 173, 207)',
             }}
-            borderRadius="full"
-            boxShadow="lg"
-            transition="all 0.2s cubic-bezier(.4,0,.2,1)"
             onClick={scrollToTop}
           />
         </motion.div>

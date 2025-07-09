@@ -17,11 +17,11 @@ export default function Projects({ projects }) {
         </Head>
         <Stack align="center" spacing={16} my={{ base: '10vh', md: '8vh' }}>
           <Heading
-            bgGradient="linear(to-r, gray.600, gray.400)"
-            bgClip="text"
             fontSize={{ base: '4xl', md: '7xl' }}
             fontWeight="extrabold"
             textAlign="center"
+            bgGradient="linear(to-r, gray.600, gray.400)"
+            bgClip="text"
           >
             Projects
           </Heading>
@@ -35,21 +35,21 @@ export default function Projects({ projects }) {
                   as="a"
                   borderRadius="2xl"
                   overflow="hidden"
-                  boxShadow="lg"
+                  shadow="lg"
                   bg="secondary"
-                  border="1px solid"
+                  border="1px"
                   borderColor="borderColor"
                   transition="box-shadow 0.2s, transform 0.2s"
-                  _hover={{ boxShadow: '0 0 32px 0 rgba(60,207,145,0.18)', transform: 'scale(1.01)', textDecoration: 'none' }}
+                  _hover={{ shadow: 'xl', transform: 'scale(1.01)', textDecoration: 'none' }}
                   display="block"
                 >
                   <Image
                     src={project.image}
                     alt={project.title}
-                    width={1200}
-                    height={500}
+                    w="100%"
+                    h="auto"
+                    maxH="320px"
                     objectFit="cover"
-                    style={{ width: '100%', height: 'auto', maxHeight: 320 }}
                   />
                   <Box p={{ base: 5, md: 8 }}>
                     <HStack spacing={3} mb={2} flexWrap="wrap">

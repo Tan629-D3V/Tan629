@@ -57,7 +57,7 @@ export default function Navbar({ enableTransition }) {
   )
 
   return (
-    <Box pos="sticky" top={0} zIndex={200} bg="charcoal" boxShadow="sm">
+    <Box pos="sticky" top={0} zIndex={200} bg="charcoal" shadow="sm">
       <Flex
         as="nav"
         align="center"
@@ -68,7 +68,7 @@ export default function Navbar({ enableTransition }) {
         py={{ base: 2, md: 6 }}
         bg="charcoal"
         color="white"
-        boxShadow="sm"
+        shadow="sm"
         backdropFilter="blur(10px)"
         style={{ position: 'sticky', top: 0, zIndex: 200 }}
       >

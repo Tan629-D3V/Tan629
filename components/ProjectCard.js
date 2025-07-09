@@ -39,7 +39,7 @@ export default function ProjectCard({
       transition="all 0.3s ease"
       _hover={{
         transform: 'translateY(-2px)',
-        boxShadow: 'lg',
+        shadow: 'lg',
         borderColor: 'button1'
       }}
     >
@@ -52,11 +52,9 @@ export default function ProjectCard({
             {status}
           </Badge>
         </HStack>
-
         <Text color="textSecondary" fontSize="sm">
           {description}
         </Text>
-
         {technologies && (
           <HStack spacing={2} flexWrap="wrap">
             {technologies.map((tech, index) => (
@@ -66,7 +64,6 @@ export default function ProjectCard({
             ))}
           </HStack>
         )}
-
         <HStack spacing={4} fontSize="sm" color="textSecondary">
           {date && (
             <HStack spacing={1}>
@@ -79,7 +76,6 @@ export default function ProjectCard({
             <Text>{technologies?.length || 0} technologies</Text>
           </HStack>
         </HStack>
-
         <HStack spacing={3}>
           {githubUrl && (
             <Link href={githubUrl} isExternal>

@@ -98,14 +98,15 @@ export default function Cards({ imageURL, title, slug, desc, tag }) {
       sx={{ '&:hover': { cursor: customCursor } }}
     >
       <Stack
+        bg="secondary"
         minH="320px"
         maxH="500px"
-        bg="secondary"
         border="1px"
         borderColor={{ base: '#333', md: 'borderColor' }}
         borderRadius="10px"
         transition="transform 0.25s cubic-bezier(.4,2,.6,1), box-shadow .2s, border-color .2s"
         _hover={{
+          shadow: "lg",
           boxShadow: "0 0 25px rgba(60, 207, 145, 0.5)",
           transform: 'scale(1.02)',
         }}
@@ -114,9 +115,10 @@ export default function Cards({ imageURL, title, slug, desc, tag }) {
           <ScaleFade transition={{ duration: 1 }} in={true}>
             <Center w="auto">
               <Image
-                width={800}
-                height={400}
+                w="100%"
+                h="auto"
                 minH={{ base: '180px', md: '270px' }}
+                maxW={800}
                 borderRadius="10px 10px 0px 0px"
                 transition="0.3s"
                 objectFit="cover"

@@ -1,6 +1,6 @@
 'use client'
 
-import { Box, Text } from '@chakra-ui/react'
+import { Box, Text, Flex } from '@chakra-ui/react'
 import { keyframes } from '@chakra-ui/system'
 
 const pulseGlow = keyframes`
@@ -11,14 +11,13 @@ const pulseGlow = keyframes`
 
 export default function Footer() {
   return (
-    <Box
+    <Flex
       as="footer"
-      bg="transparent"
       w="100%"
       minH={{ base: '60px', md: '180px' }}
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
+      align="center"
+      justify="center"
+      bg="transparent"
       overflow="hidden"
       p={0}
       m={0}
@@ -45,8 +44,6 @@ export default function Footer() {
       >
         TANMAY
       </Text>
-
-      
-    </Box>
+    </Flex>
   )
 } 

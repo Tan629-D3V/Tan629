@@ -79,9 +79,9 @@ export default function AboutMe() {
                 }
                 text="Vellore Institute of Technology"
               />
-               I've been close to a computer since an early age and passionate
-                about technology ever since. <br/> <br/> I really loved tinkering with 
-                simple scripts in school, and from that spark I taught myself {' '}
+              I've been close to a computer since an early age and passionate
+              about technology ever since. <br/> <br/> I really loved tinkering with 
+              simple scripts in school, and from that spark I taught myself {' '}
               <MoreInfo
                 content={"I really enjoy using C++, Python, and JavaScript together to build versatile solutions that span low-level systems and modern web frameworks."}
                 text="C++, Python & JavaScript"
@@ -89,8 +89,8 @@ export default function AboutMe() {
               —fast-forward to today, I build full-stack applications and had the 
               privilege to work at Suvidha Foundation and Globalprime Healthcare. 
               I'm all about crafting seamless user experiences, automating workflows,
-               and architecting scalable solutions.
-            <br/> <br/>
+              and architecting scalable solutions.
+              <br/> <br/>
               I'm interested in building something awesome with code and
               automate tasks with code, currently focused on
               <MoreInfo
@@ -102,7 +102,7 @@ export default function AboutMe() {
                 content="I really like the idea of contributing new features to open source projects that can be useful to other people."
                 text="Open Source"
               />
-               and sharpening my skills through 
+              and sharpening my skills through 
               <MoreInfo
                 content="Competitive Programming helped me to sharpen my Algorithms and Problem Solving skills."
                 text="Competitive Programming"
@@ -111,7 +111,7 @@ export default function AboutMe() {
               <br />
               When I'm not coding, you'll find me chilling with my friends, 
               binge-watching the latest Netflix series, or—if the mood
-               strikes—lacing up my gloves and hitting the bag! 🥊
+              strikes—lacing up my gloves and hitting the bag! 🥊
             </Text>
           </Stack>
         </SlideUpWhenVisible>

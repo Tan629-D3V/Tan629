@@ -315,11 +315,11 @@ const MDXComponents = {
   ),
   img: (props) => (
     <Center>
-      <Box width={{ base: '100%', md: '80%' }} height="auto" maxWidth="100vw">
+      <Box w={{ base: '100%', md: '80%' }} h="auto" maxW="100vw">
         <Image
           src={props.src}
-          width="100%"
-          height="auto"
+          w="100%"
+          h="auto"
           layout="responsive"
           style={{ maxWidth: '100%', height: 'auto' }}
           {...props}

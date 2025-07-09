@@ -23,7 +23,6 @@ export default class MyDocument extends NextDocument {
           <link rel="apple-touch-icon" sizes="180x180" href="/cropped_circle_image.png" />
           <link rel="shortcut icon" href="/cropped_circle_image.png" />
 
-          <title>Tanmay Chouhan | Full Stack Developer</title>
           <meta name="description" content="Tanmay Chouhan is a Full Stack Developer skilled in React, Next.js, Node.js, and modern web technologies. Building performant, accessible, and beautiful web applications." />
           <meta property="og:title" content="Tanmay Chouhan | Full Stack Developer" />
           <meta property="og:description" content="Full Stack Developer skilled in React, Next.js, Node.js, and modern web technologies. Building performant, accessible, and beautiful web applications." />

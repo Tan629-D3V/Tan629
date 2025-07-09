@@ -21,10 +21,13 @@ export default function ContactMe({ contactMe }) {
     })
   }
   return (
-    <Stack alignItems="center" justifyContent="center" 
-    w="100%" spacing={10} 
-    mt={{ base: '0', md: '5rem' }} 
-    mb={{ base: '0', md: '2rem' }}
+    <Stack
+      w="100%"
+      alignItems="center"
+      justifyContent="center"
+      spacing={10}
+      mt={{ base: '0', md: '5rem' }}
+      mb={{ base: '0', md: '2rem' }}
     >
       <ScaleFade
         initialScale={0.9}
@@ -130,8 +133,8 @@ export default function ContactMe({ contactMe }) {
         >
           <Link href="https://github.com/Tan629-D3V" isExternal>
             <Button
-              pos="static"
               color="white"
+              pos="static"
               leftIcon={<FaGithub color="#3CCF91" />}
               onClick={() => handleClick('introduction_github')}
               size={isLargerThan800 ? 'md' : 'sm'}

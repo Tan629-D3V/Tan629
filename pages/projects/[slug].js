@@ -123,12 +123,10 @@ export default function Project({ metadata, publishedDate, source, toc }) {
             overflow="hidden"
           >
             <Image
-              width={1366}
-              height={768}
+              w="100%"
+              h="auto"
               objectFit="cover"
-              style={{
-                borderRadius: '10px',
-              }}
+              style={{ borderRadius: '10px' }}
               alt={metadata.title}
               priority
               src={metadata.image}

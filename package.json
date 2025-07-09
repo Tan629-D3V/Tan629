@@ -36,6 +36,7 @@
     "tailwind-merge": "^2.0.0"
   },
   "devDependencies": {
-    "@typescript-eslint/parser": "^6.13.2"
+    "@typescript-eslint/parser": "^6.13.2",
+    "eslint-plugin-chakra-ui": "^0.12.0"
   }
 }

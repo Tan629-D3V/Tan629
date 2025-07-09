@@ -244,7 +244,7 @@ const TagCloud3D = ({ skills }) => {
       ref={containerRef}
       w="100%"
       h="100%"
-      position="absolute"
+      pos="absolute"
       top="0"
       left="0"
     >

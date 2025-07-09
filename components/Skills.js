@@ -1,4 +1,4 @@
-import { Box, Text, Heading, Link, useColorModeValue, VStack } from '@chakra-ui/react';
+import { Box, Text, Heading, Link, useColorModeValue, VStack, Flex } from '@chakra-ui/react';
 import React from 'react';
 import TagCloud3D from './TagCloud3D';
 
@@ -36,20 +36,19 @@ export default function Skills() {
   const accent = 'button1';
 
   return (
-    <Box 
+    <Flex 
       w="100%" 
       py={{ base: 20, md: 32 }} 
       px={{ base: 4, md: 10 }}
-      position="relative"
+      pos="relative"
       overflow="hidden"
       minH={{ base: '600px', md: '800px' }}
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
+      align="center"
+      justify="center"
     >
       {/* 3D Tag Cloud as Background */}
       <Box
-        position="absolute"
+        pos="absolute"
         top="0"
         left="0"
         w="100%"
@@ -61,7 +60,7 @@ export default function Skills() {
       
       {/* Centered Glassmorphism Circle */}
       <Box
-        position="relative"
+        pos="relative"
         zIndex={2}
         w={{ base: '220px', sm: '200px', md: '300px' }}
         h={{ base: '220px', sm: '200px', md: '300px' }}
@@ -285,6 +284,6 @@ export default function Skills() {
           }
         }
       `}</style>
-    </Box>
+    </Flex>
   );
 } 
