@@ -60,9 +60,9 @@ export default function Navbar({ enableTransition }) {
     <Box pos="sticky" top={0} zIndex={200} bg="charcoal" shadow="sm">
       <Flex
         as="nav"
+        direction="row"
         align="center"
         justify="space-between"
-        direction="row"
         w="100%"
         px={{ base: 10, md: 36 }}
         py={{ base: 2, md: 6 }}
@@ -74,17 +74,17 @@ export default function Navbar({ enableTransition }) {
       >
         <Box
           as="button"
-          onClick={() => window.location.href = '/'}
+          aria-label="Homepage"
+          w={{ base: 12, md: 20 }}
+          h={{ base: 12, md: 20 }}
           d="flex"
           alignItems="center"
+          borderRadius="full"
           className="navbar-logo-wrapper"
           _hover={{ opacity: 0.9, transform: 'scale(1.2)' }}
           transition="all 0.4s cubic-bezier(0.4, 0, 0.2, 1)"
-          w={{ base: 12, md: 20 }}
-          h={{ base: 12, md: 20 }}
           style={{ justifyContent: 'center', margin: '0 1rem', animation: 'fadeInLogo 1.2s ease' }}
-          borderRadius="full"
-          aria-label="Homepage"
+          onClick={() => window.location.href = '/'}
         >
           <Image
             src="/cropped_circle_image.png"
@@ -96,7 +96,7 @@ export default function Navbar({ enableTransition }) {
             style={{ display: 'block' }}
           />
         </Box>
-        <Box mr={7} color="displayColor" display={{ base: 'none', md: 'flex' }} alignItems="center" gap={2}>
+        <Box display={{ base: 'none', md: 'flex' }} alignItems="center" gap={2} color="displayColor" mr={7}>
           <NextLink passHref href="/">
             <Button as="a" p="4" fontSize={{ base: 'sm', md: 'lg' }} variant="ghost" transition="all 0.2s ease-in-out" _hover={{ color: 'white', bg: 'rgba(60, 207, 145, 0.1)' }}>
               Home
