@@ -74,15 +74,15 @@ export default function Navbar({ enableTransition }) {
       >
         <Box
           as="button"
+          className="navbar-logo-wrapper"
+          style={{ justifyContent: 'center', margin: '0 1rem', animation: 'fadeInLogo 1.2s ease' }}
           w={{ base: 12, md: 20 }}
           h={{ base: 12, md: 20 }}
           d="flex"
           alignItems="center"
           borderRadius="full"
-          className="navbar-logo-wrapper"
-          style={{ justifyContent: 'center', margin: '0 1rem', animation: 'fadeInLogo 1.2s ease' }}
-          _hover={{ opacity: 0.9, transform: 'scale(1.2)' }}
           transition="all 0.4s cubic-bezier(0.4, 0, 0.2, 1)"
+          _hover={{ opacity: 0.9, transform: 'scale(1.2)' }}
           onClick={() => window.location.href = '/'}
           aria-label="Homepage"
         >
