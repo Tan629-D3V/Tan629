@@ -94,8 +94,6 @@ export default function Navbar({ enableTransition }) {
             h="100%"
             objectFit="contain"
             style={{ display: 'block' }}
-            width={48}
-            height={48}
           />
         </Box>
         <Box

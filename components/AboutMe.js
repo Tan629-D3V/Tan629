@@ -18,6 +18,7 @@ import { motion } from 'framer-motion'
 import useMediaQuery from '../hook/useMediaQuery'
 import SlideUpWhenVisible from '../hook/SlideUpWhenVisible'
 import ReactGA from 'react-ga4'
+import NextImage from 'next/image'
 
 export default function AboutMe() {
   const isLargerThan800 = useMediaQuery(800)
@@ -70,11 +71,9 @@ export default function AboutMe() {
               Hey! I'm Tanmay Chouhan, a Computer Science student at {' '}
               <MoreInfo
                 content={
-                  <Image
-                    w={306}
-                    h={102}
-                    alt="VIT Vellore"
+                  <NextImage
                     src="https://imagizer.imageshack.com/img924/6016/mB0lSy.jpg"
+                    alt="VIT Vellore"
                     width={306}
                     height={102}
                   />
@@ -143,8 +142,6 @@ export default function AboutMe() {
                 objectFit="cover"
                 alt="Abdul Rahman"
                 src="/ME.jpg"
-                width={300}
-                height={300}
               />
             </Box>
           </Flex>
