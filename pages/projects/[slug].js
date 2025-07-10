@@ -26,6 +26,20 @@ import NextSeoData from '../../components/NextSeoData'
 import useUtterances from '../../hook/useUtterances'
 import Image from 'next/image'
 
+// Helper to extract width/height from placeholder.com or fallback
+function getPlaceholderSize(url) {
+  // Matches /400x200 or /400
+  if (!url) return { width: 400, height: 200 };
+  const match = url.match(/placeholder.com\/(\d+)(x(\d+))?/);
+  if (match) {
+    const width = parseInt(match[1], 10) || 400;
+    const height = match[3] ? parseInt(match[3], 10) : width;
+    return { width, height };
+  }
+  // fallback
+  return { width: 400, height: 200 };
+}
+
 export default function Project({ metadata, publishedDate, source, toc }) {
   const [views, setViews] = useState('...')
   const router = useRouter()
@@ -88,6 +102,11 @@ export default function Project({ metadata, publishedDate, source, toc }) {
     )
   }
 
+  // Fallback to a default image if metadata.image is missing or invalid
+  const imageSrc = metadata.image || 'https://via.placeholder.com/400x200?text=No+Image';
+  const { width, height } = getPlaceholderSize(imageSrc);
+  console.log('Image src:', imageSrc, 'width:', width, 'height:', height);
+
   return (
     <>
       <NextSeoData
@@ -123,14 +142,13 @@ export default function Project({ metadata, publishedDate, source, toc }) {
             borderRadius="10px"
           >
             <Image
-              src={metadata.image}
+              src={imageSrc}
               alt={metadata.title}
-              w="100%"
-              h="auto"
-              objectFit="cover"
-              style={{ borderRadius: '10px' }}
+              width={width}
+              height={height}
+              style={{ width: '100%', height: 'auto', borderRadius: '10px', objectFit: 'cover' }}
               priority
-              blurDataURL={metadata.image}
+              blurDataURL={imageSrc}
             />
           </Stack>
 

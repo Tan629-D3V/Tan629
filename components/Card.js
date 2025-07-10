@@ -125,6 +125,8 @@ export default function Cards({ imageURL, title, slug, desc, tag }) {
                 style={{ borderRadius: '10px 10px 0px 0px', objectFit: 'cover', width: '100%', height: 'auto', maxWidth: 800, minHeight: '180px' }}
                 alt={title}
                 src={imageURL}
+                width={800}
+                height={270}
               />
             </Center>
             <Stack px={4} py={2}>

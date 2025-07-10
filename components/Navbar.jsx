@@ -89,11 +89,13 @@ export default function Navbar({ enableTransition }) {
           <Image
             src="/cropped_circle_image.png"
             alt="Tan629 Logo"
+            borderRadius="full"
             w="100%"
             h="100%"
             objectFit="contain"
-            borderRadius="full"
             style={{ display: 'block' }}
+            width={48}
+            height={48}
           />
         </Box>
         <Box
@@ -105,8 +107,8 @@ export default function Navbar({ enableTransition }) {
         >
           <NextLink passHref href="/">
             <Button
-              as="a"
               variant="ghost"
+              as="a"
               p="4"
               fontSize={{ base: 'sm', md: 'lg' }}
               transition="all 0.2s ease-in-out"
@@ -116,8 +118,8 @@ export default function Navbar({ enableTransition }) {
             </Button>
           </NextLink>
           <Button
-            as="a"
             variant="ghost"
+            as="a"
             href="#about-me"
             p="4"
             fontSize={{ base: 'sm', md: 'lg' }}
@@ -132,8 +134,8 @@ export default function Navbar({ enableTransition }) {
           </Button>
           <NextLink passHref href="/projects">
             <Button
-              as="a"
               variant="ghost"
+              as="a"
               p="4"
               fontSize={{ base: 'sm', md: 'lg' }}
               transition="all 0.2s ease-in-out"
@@ -143,8 +145,8 @@ export default function Navbar({ enableTransition }) {
             </Button>
           </NextLink>
           <Button
-            as="a"
             variant="ghost"
+            as="a"
             href="#contact-me"
             p="4"
             fontSize={{ base: 'sm', md: 'lg' }}

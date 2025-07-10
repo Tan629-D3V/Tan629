@@ -3,6 +3,9 @@ import { ArticleJsonLd, NextSeo } from 'next-seo'
 import React from 'react'
 
 const NextSeoData = ({ slug, metadata, publishedDate }) => {
+  // Use default values if summary or image are missing
+  const summary = metadata.frontmatter?.summary || '';
+  const image = metadata.frontmatter?.image || '';
   return (
     <>
       <NextSeo
@@ -15,17 +18,17 @@ const NextSeoData = ({ slug, metadata, publishedDate }) => {
           { property: 'twitter:title', content: metadata.title },
           {
             property: 'twitter:description',
-            content: metadata.frontmatter.summary,
+            content: summary,
           },
-          { property: 'twitter:image', content: metadata.frontmatter.image },
+          { property: 'twitter:image', content: image },
         ]}
         canonical={`https://abdulrahman.id/projects/${slug}`}
-        description={metadata.frontmatter.summary}
+        description={summary}
         openGraph={{
           url: `https://abdulrahman.id/projects/${slug}`,
           site_name: 'Abdul Rahman',
           title: metadata.title,
-          description: metadata.frontmatter.summary,
+          description: summary,
           type: 'article',
           article: {
             authors: ['Abdul Rahman'],
@@ -35,7 +38,7 @@ const NextSeoData = ({ slug, metadata, publishedDate }) => {
           },
           images: [
             {
-              url: metadata.frontmatter.image,
+              url: image,
               alt: metadata.title,
             },
           ],
@@ -46,8 +49,8 @@ const NextSeoData = ({ slug, metadata, publishedDate }) => {
         authorName="Abdul Rahman"
         dateModified={publishedDate}
         datePublished={publishedDate}
-        description={metadata.frontmatter.summary}
-        images={[metadata.frontmatter.image]}
+        description={summary}
+        images={[image]}
         publisherLogo="https://imagizer.imageshack.com/a/img923/7612/A5tDeP.png"
         publisherName="Abdul Rahman"
         title={metadata.title}

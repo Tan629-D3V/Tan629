@@ -75,6 +75,8 @@ export default function AboutMe() {
                     h={102}
                     alt="VIT Vellore"
                     src="https://imagizer.imageshack.com/img924/6016/mB0lSy.jpg"
+                    width={306}
+                    height={102}
                   />
                 }
                 text="Vellore Institute of Technology"
@@ -141,6 +143,8 @@ export default function AboutMe() {
                 objectFit="cover"
                 alt="Abdul Rahman"
                 src="/ME.jpg"
+                width={300}
+                height={300}
               />
             </Box>
           </Flex>

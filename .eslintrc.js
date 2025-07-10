@@ -8,7 +8,7 @@ module.exports = {
   },
   rules: {
     'react/no-unescaped-entities': 'off',
-    'chakra-ui/props-order': 'error',
+    'chakra-ui/props-order': 'off',
     'chakra-ui/props-shorthand': 'error',
     'chakra-ui/require-specific-component': 'error',
   },

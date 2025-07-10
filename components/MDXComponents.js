@@ -25,7 +25,7 @@ import {
 } from '@chakra-ui/react'
 import Image from 'next/image'
 import NextLink from 'next/link'
-import { FaCheckCircle, FaInfoCircle, FaWarning, FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
+import { FaCheckCircle, FaInfoCircle, FaExclamationTriangle, FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
 import ProjectCard from './ProjectCard'
 
 const CustomLink = (props) => {
@@ -195,7 +195,7 @@ const ProjectLinks = ({ githubUrl, liveUrl, demoUrl }) => (
 const InfoAlert = ({ title, children, type = "info" }) => {
   const alertProps = {
     info: { icon: FaInfoCircle, colorScheme: "blue" },
-    warning: { icon: FaWarning, colorScheme: "orange" },
+    warning: { icon: FaExclamationTriangle, colorScheme: "orange" },
     success: { icon: FaCheckCircle, colorScheme: "green" }
   }
   
@@ -253,6 +253,18 @@ const ImageGallery = ({ images, columns = 2 }) => (
     ))}
   </Grid>
 )
+
+// Helper to extract width/height from placeholder.com or fallback
+function getPlaceholderSize(url) {
+  if (!url) return { width: 400, height: 200 };
+  const match = url.match(/placeholder.com\/(\d+)(x(\d+))?/);
+  if (match) {
+    const width = parseInt(match[1], 10) || 400;
+    const height = match[3] ? parseInt(match[3], 10) : width;
+    return { width, height };
+  }
+  return { width: 400, height: 200 };
+}
 
 const MDXComponents = {
   h1: (props) => (
@@ -313,21 +325,32 @@ const MDXComponents = {
       {...props}
     />
   ),
-  img: (props) => (
-    <Center>
-      <Box w={{ base: '100%', md: '80%' }} maxW="100vw" h="auto">
-        <Image
-          src={props.src}
-          w="100%"
-          h="auto"
-          layout="responsive"
-          style={{ maxWidth: '100%', height: 'auto' }}
-          {...props}
-          alt=""
-        />
-      </Box>
-    </Center>
-  ),
+  img: (props) => {
+    let width = props.width;
+    let height = props.height;
+    if (!width || !height) {
+      const size = getPlaceholderSize(props.src);
+      width = size.width;
+      height = size.height;
+    } else {
+      width = Number(width);
+      height = Number(height);
+    }
+    return (
+      <Center>
+        <Box w={{ base: '100%', md: '80%' }} maxW="100vw" h="auto">
+          <Image
+            src={props.src}
+            width={width}
+            height={height}
+            style={{ maxWidth: '100%', height: 'auto' }}
+            alt={props.alt || ''}
+            {...props}
+          />
+        </Box>
+      </Center>
+    );
+  },
   inlineCode: (props) => (
     <Code mt={-10} fontSize="0.84em" colorScheme="blue" {...props} />
   ),
